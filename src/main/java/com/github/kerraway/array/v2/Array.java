@@ -110,6 +110,24 @@ public class Array<E> {
   }
 
   /**
+   * Get the first element of array.
+   *
+   * @return E
+   */
+  public E getFirst() {
+    return get(0);
+  }
+
+  /**
+   * Get the last element of array.
+   *
+   * @return E
+   */
+  public E getLast() {
+    return get(size - 1);
+  }
+
+  /**
    * Get element which is at the index of array.
    *
    * @param index
