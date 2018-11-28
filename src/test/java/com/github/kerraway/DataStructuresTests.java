@@ -3,7 +3,7 @@ package com.github.kerraway;
 import com.github.kerraway.array.v1.ArrayV1Test;
 import com.github.kerraway.array.v2.ArrayV2Test;
 import com.github.kerraway.stack.ArrayStackTest;
-import com.github.kerraway.stack.LeetCode20;
+import com.github.kerraway.stack.LeetCode20Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
     ArrayStackTest.class,
 
     //leetcode
-    LeetCode20.class,
+    LeetCode20Test.class,
 })
 public class DataStructuresTests {
 }

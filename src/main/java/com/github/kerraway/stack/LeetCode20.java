@@ -1,9 +1,5 @@
 package com.github.kerraway.stack;
 
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
 /**
  * https://leetcode-cn.com/problems/valid-parentheses/
  *
@@ -35,23 +31,6 @@ public class LeetCode20 {
       }
     }
     return stack.isEmpty();
-  }
-
-  @Test
-  public void test() {
-    Object[][] argsArr = {
-        {"", true},
-        {"()", true},
-        {"()[]{}", true},
-        {"(]", false},
-        {"([)]", false},
-        {"{[]}", true},
-    };
-    for (Object[] args : argsArr) {
-      String str = (String) args[0];
-      boolean expected = (boolean) args[1];
-      assertEquals(expected, new LeetCode20().isValid(str));
-    }
   }
 
 }
