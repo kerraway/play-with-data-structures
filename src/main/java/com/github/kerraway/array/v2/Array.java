@@ -155,7 +155,7 @@ public class Array<E> {
    * @param e
    * @return int
    */
-  public int index(E e) {
+  public int indexOf(E e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e || (data[i] != null && data[i].equals(e))) {
         return i;
@@ -211,7 +211,7 @@ public class Array<E> {
    * @param e
    */
   public void removeElement(E e) {
-    int index = index(e);
+    int index = indexOf(e);
     if (index != -1) {
       remove(index);
     }

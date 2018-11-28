@@ -60,7 +60,7 @@ public class ArrayV1Test {
     size += 1;
     assertEquals(size, array.size());
     assertTrue(array.contains(e));
-    assertEquals(index, array.index(e));
+    assertEquals(index, array.indexOf(e));
     array.removeElement(e);
     size -= 1;
     assertEquals(size, array.size());

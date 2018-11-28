@@ -149,7 +149,7 @@ public class Array {
    * @param e
    * @return int
    */
-  public int index(int e) {
+  public int indexOf(int e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e) {
         return i;
@@ -199,7 +199,7 @@ public class Array {
    * @param e
    */
   public void removeElement(int e) {
-    int index = index(e);
+    int index = indexOf(e);
     if (index != -1) {
       remove(index);
     }
