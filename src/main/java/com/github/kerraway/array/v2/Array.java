@@ -196,8 +196,10 @@ public class Array<E> {
       data[i] = data[i + 1];
     }
     size--;
+    //set loitering element to null
+    data[size] = null;
     //if size equals to 1/3 capacity, resize capacity to 1/2 capacity
-    if (size == capacity() / 3) {
+    if (size == capacity() / 3 && capacity() / RESIZE_FACTOR != 0) {
       resize(capacity() / RESIZE_FACTOR);
     }
     return ret;
@@ -237,6 +239,8 @@ public class Array<E> {
    * @param newCapacity
    */
   private void resize(int newCapacity) {
+    Assert.isTrue(newCapacity > 0, "new capacity must be positive.");
+
     E[] newData = (E[]) new Object[newCapacity];
     for (int i = 0; i < size; i++) {
       newData[i] = data[i];
