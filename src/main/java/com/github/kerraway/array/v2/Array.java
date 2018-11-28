@@ -11,6 +11,15 @@ import com.github.kerraway.util.Assert;
 public class Array<E> {
 
   /**
+   * Default initial capacity.
+   */
+  private static final int DEFAULT_CAPACITY = 10;
+  /**
+   * Resize factor.
+   */
+  private static final int RESIZE_FACTOR = 2;
+
+  /**
    * static array
    */
   private E[] data;
@@ -33,7 +42,7 @@ public class Array<E> {
    * No argument constructor, default capacity is 10.
    */
   public Array() {
-    this(10);
+    this(DEFAULT_CAPACITY);
   }
 
   /**
@@ -88,9 +97,11 @@ public class Array<E> {
    * @param e
    */
   public void add(int index, E e) {
-    Assert.isTrue(size < data.length, "add element failed, the data array is full.");
-    Assert.isTrue(index >= 0 && index < data.length, "add element failed, index must be in [0, " + data.length + ").");
+    Assert.isTrue(index >= 0 && index <= size, "add element failed, index must be in [0, " + size + "].");
 
+    if (size == capacity()) {
+      resize(RESIZE_FACTOR * capacity());
+    }
     for (int i = size - 1; i >= index; i--) {
       data[i + 1] = data[i];
     }
@@ -185,6 +196,10 @@ public class Array<E> {
       data[i] = data[i + 1];
     }
     size--;
+    //if size equals to 1/3 capacity, resize capacity to 1/2 capacity
+    if (size == capacity() / 3) {
+      resize(capacity() / RESIZE_FACTOR);
+    }
     return ret;
   }
 
@@ -204,7 +219,7 @@ public class Array<E> {
   public String toString() {
     StringBuilder res = new StringBuilder();
     res.append("Array: size = ").append(size).append(", ");
-    res.append("capacity = ").append(data.length).append(", ");
+    res.append("capacity = ").append(capacity()).append(", ");
     res.append("elements = [");
     for (int i = 0; i < size; i++) {
       res.append(data[i]);
@@ -214,5 +229,18 @@ public class Array<E> {
     }
     res.append("]");
     return res.toString();
+  }
+
+  /**
+   * Adjust static array's capacity to new capacity.
+   *
+   * @param newCapacity
+   */
+  private void resize(int newCapacity) {
+    E[] newData = (E[]) new Object[newCapacity];
+    for (int i = 0; i < size; i++) {
+      newData[i] = data[i];
+    }
+    data = newData;
   }
 }

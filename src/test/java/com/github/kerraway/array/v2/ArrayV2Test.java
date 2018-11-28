@@ -83,4 +83,32 @@ public class ArrayV2Test {
     System.out.println(array);
   }
 
+  @Test
+  public void test3() {
+    int capacity = 10;
+    Array<Integer> array = new Array<>(capacity);
+    int size = capacity;
+    for (int i = 0; i < size; i++) {
+      array.addLast(i);
+    }
+    assertEquals(capacity, array.capacity());
+    assertEquals(capacity, array.size());
+    System.out.println(array);
+
+    array.addLast(10);
+    size += 1;
+    assertEquals(size, array.size());
+    assertEquals(2 * capacity, array.capacity());
+    System.out.println(array);
+
+    int arraySize = size;
+    for (int i = 0; i < arraySize; i++) {
+      array.removeFirst();
+      size--;
+    }
+    assertEquals(size, array.size());
+    assertTrue(capacity > array.capacity());
+    System.out.println(array);
+  }
+
 }

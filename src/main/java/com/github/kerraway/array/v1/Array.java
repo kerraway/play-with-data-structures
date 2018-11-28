@@ -11,6 +11,11 @@ import com.github.kerraway.util.Assert;
 public class Array {
 
   /**
+   * Default initial capacity.
+   */
+  private static final int DEFAULT_CAPACITY = 10;
+
+  /**
    * static array
    */
   private int[] data;
@@ -33,7 +38,7 @@ public class Array {
    * No argument constructor, default capacity is 10.
    */
   public Array() {
-    this(10);
+    this(DEFAULT_CAPACITY);
   }
 
   /**
@@ -88,8 +93,8 @@ public class Array {
    * @param e
    */
   public void add(int index, int e) {
-    Assert.isTrue(size < data.length, "add element failed, the data array is full.");
-    Assert.isTrue(index >= 0 && index < data.length, "add element failed, index must be in [0, " + data.length + ").");
+    Assert.isTrue(size < capacity(), "add element failed, the data array is full.");
+    Assert.isTrue(index >= 0 && index <= size, "add element failed, index must be in [0, " + size + "].");
 
     for (int i = size - 1; i >= index; i--) {
       data[i + 1] = data[i];
@@ -204,7 +209,7 @@ public class Array {
   public String toString() {
     StringBuilder res = new StringBuilder();
     res.append("Array: size = ").append(size).append(", ");
-    res.append("capacity = ").append(data.length).append(", ");
+    res.append("capacity = ").append(capacity()).append(", ");
     res.append("elements = [");
     for (int i = 0; i < size; i++) {
       res.append(data[i]);
