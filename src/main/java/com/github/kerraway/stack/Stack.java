@@ -1,6 +1,8 @@
 package com.github.kerraway.stack;
 
 /**
+ * FILO (First in, Last out)
+ *
  * @author 小柯
  * @date 2018/11/28
  */
