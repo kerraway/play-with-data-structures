@@ -3,7 +3,7 @@ package com.github.kerraway.stack;
 import com.github.kerraway.array.v2.Array;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/28
  */
 public class ArrayStack<E> implements Stack<E> {

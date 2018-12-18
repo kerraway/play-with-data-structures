@@ -5,7 +5,7 @@ import com.github.kerraway.util.Assert;
 /**
  * Simple Array, only support storage int element.
  *
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/26
  */
 public class Array {

@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/28
  */
 public class ArrayV1Test {

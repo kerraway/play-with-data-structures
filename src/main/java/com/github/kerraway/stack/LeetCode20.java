@@ -3,7 +3,7 @@ package com.github.kerraway.stack;
 /**
  * https://leetcode-cn.com/problems/valid-parentheses/
  *
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/28
  */
 public class LeetCode20 {

@@ -1,7 +1,7 @@
 package com.github.kerraway.array.v2;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/28
  */
 public class Foo {

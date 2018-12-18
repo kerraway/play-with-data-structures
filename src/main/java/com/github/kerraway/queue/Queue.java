@@ -3,7 +3,7 @@ package com.github.kerraway.queue;
 /**
  * FIFO (First in, First out)
  *
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/30
  */
 public interface Queue<E> {

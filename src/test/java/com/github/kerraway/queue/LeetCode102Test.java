@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/30
  */
 public class LeetCode102Test {

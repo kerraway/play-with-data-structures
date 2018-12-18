@@ -22,7 +22,7 @@ import java.util.List;
  * -    [15,7]
  * - ]
  *
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/30
  */
 public class LeetCode102 {

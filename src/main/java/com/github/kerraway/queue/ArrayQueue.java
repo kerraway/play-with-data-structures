@@ -3,7 +3,7 @@ package com.github.kerraway.queue;
 import com.github.kerraway.array.v2.Array;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/30
  */
 public class ArrayQueue<E> implements Queue<E> {

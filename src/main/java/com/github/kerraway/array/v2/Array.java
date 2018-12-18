@@ -5,7 +5,7 @@ import com.github.kerraway.util.Assert;
 /**
  * Array, support generic.
  *
- * @author 小柯
+ * @author kerraway
  * @date 2018/11/26
  */
 public class Array<E> {
