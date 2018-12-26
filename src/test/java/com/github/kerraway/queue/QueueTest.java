@@ -27,6 +27,10 @@ public class QueueTest {
     //LoopQueue V2
     Queue<Integer> loopQueueV2 = new com.github.kerraway.queue.loop.v2.LoopQueue<>();
     functionTest(loopQueueV2);
+
+    //LoopQueue V3
+    Queue<Integer> loopQueueV3 = new com.github.kerraway.queue.loop.v3.LoopQueue<>();
+    functionTest(loopQueueV3);
   }
 
   @Test
@@ -42,6 +46,10 @@ public class QueueTest {
     //LoopQueue V2
     Queue<Integer> loopQueueV2 = new com.github.kerraway.queue.loop.v2.LoopQueue<>();
     performanceTest(loopQueueV2);
+
+    //LoopQueue V3
+    Queue<Integer> loopQueueV3 = new com.github.kerraway.queue.loop.v3.LoopQueue<>();
+    performanceTest(loopQueueV3);
   }
 
   private void functionTest(Queue<Integer> queue) {
@@ -67,7 +75,7 @@ public class QueueTest {
   private void performanceTest(Queue<Integer> queue) {
     System.out.println("Queue performance test for " + queue.getClass().getName());
 
-    Instant start = Instant.now();
+    long start = System.nanoTime();
     Random random = new Random();
     int total = 100000;
     for (int i = 0; i < total; i++) {
@@ -78,7 +86,7 @@ public class QueueTest {
     }
 
     System.out.printf("Queue performance test for %s, use %s s.\n",
-        queue.getClass().getName(), Duration.between(start, Instant.now()).toMillis() / 1000.0);
+        queue.getClass().getName(), (System.nanoTime() - start) / 1000000000.0);
   }
 
 }
