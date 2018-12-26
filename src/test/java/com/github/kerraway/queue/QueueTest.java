@@ -2,8 +2,6 @@ package com.github.kerraway.queue;
 
 import org.junit.Test;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
