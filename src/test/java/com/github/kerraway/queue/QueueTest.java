@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author kerraway
@@ -20,9 +20,13 @@ public class QueueTest {
     Queue<Integer> arrayQueue = new ArrayQueue<>();
     functionTest(arrayQueue);
 
-    //LoopQueue
-    Queue<Integer> loopQueue = new LoopQueue<>();
-    functionTest(loopQueue);
+    //LoopQueue V1
+    Queue<Integer> loopQueueV1 = new com.github.kerraway.queue.loop.v1.LoopQueue<>();
+    functionTest(loopQueueV1);
+
+    //LoopQueue V2
+    Queue<Integer> loopQueueV2 = new com.github.kerraway.queue.loop.v2.LoopQueue<>();
+    functionTest(loopQueueV2);
   }
 
   @Test
@@ -31,9 +35,13 @@ public class QueueTest {
     Queue<Integer> arrayQueue = new ArrayQueue<>();
     performanceTest(arrayQueue);
 
-    //LoopQueue
-    Queue<Integer> loopQueue = new LoopQueue<>();
-    performanceTest(loopQueue);
+    //LoopQueue V1
+    Queue<Integer> loopQueueV1 = new com.github.kerraway.queue.loop.v1.LoopQueue<>();
+    performanceTest(loopQueueV1);
+
+    //LoopQueue V2
+    Queue<Integer> loopQueueV2 = new com.github.kerraway.queue.loop.v2.LoopQueue<>();
+    performanceTest(loopQueueV2);
   }
 
   private void functionTest(Queue<Integer> queue) {

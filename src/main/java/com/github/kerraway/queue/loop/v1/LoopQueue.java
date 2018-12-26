@@ -1,8 +1,13 @@
-package com.github.kerraway.queue;
+package com.github.kerraway.queue.loop.v1;
 
+import com.github.kerraway.queue.Queue;
 import com.github.kerraway.util.Assert;
 
 /**
+ * This version wastes one space to insure ({@link #tail} + 1)
+ * % {@link #data}.length < {@link #front}.
+ * And use {@link #size} to simplify methods.
+ *
  * @author kerraway
  * @date 2018/12/26
  */
