@@ -1,6 +1,6 @@
 package com.github.kerraway.stack;
 
-import com.github.kerraway.array.v2.Array;
+import com.github.kerraway.list.array.v2.ArrayList;
 
 /**
  * @author kerraway
@@ -8,14 +8,14 @@ import com.github.kerraway.array.v2.Array;
  */
 public class ArrayStack<E> implements Stack<E> {
 
-  private Array<E> array;
+  private ArrayList<E> array;
 
   public ArrayStack(int capacity) {
-    array = new Array<>(capacity);
+    array = new ArrayList<>(capacity);
   }
 
   public ArrayStack() {
-    array = new Array<>();
+    array = new ArrayList<>();
   }
 
   @Override

@@ -1,7 +1,7 @@
 package com.github.kerraway;
 
-import com.github.kerraway.array.v1.ArrayV1Test;
-import com.github.kerraway.array.v2.ArrayV2Test;
+import com.github.kerraway.list.array.v1.ArrayListV1Test;
+import com.github.kerraway.list.array.v2.ArrayListV2Test;
 import com.github.kerraway.queue.LeetCode102Test;
 import com.github.kerraway.queue.QueueTest;
 import com.github.kerraway.stack.ArrayStackTest;
@@ -12,8 +12,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     //array
-    ArrayV1Test.class,
-    ArrayV2Test.class,
+    ArrayListV1Test.class,
+    ArrayListV2Test.class,
 
     //stack
     ArrayStackTest.class,

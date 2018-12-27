@@ -1,4 +1,4 @@
-package com.github.kerraway.array.v2;
+package com.github.kerraway.list.array.v2;
 
 /**
  * @author kerraway

@@ -1,14 +1,15 @@
-package com.github.kerraway.array.v1;
+package com.github.kerraway.list.array.v1;
 
+import com.github.kerraway.list.List;
 import com.github.kerraway.util.Assert;
 
 /**
- * Simple Array, only support storage int element.
+ * Simple array list, only support storage {@link Integer} element.
  *
  * @author kerraway
  * @date 2018/11/26
  */
-public class Array {
+public class ArrayList implements List<Integer> {
 
   /**
    * Default initial capacity.
@@ -18,7 +19,7 @@ public class Array {
   /**
    * static array
    */
-  private int[] data;
+  private Integer[] data;
   /**
    * the size of elements
    */
@@ -29,15 +30,15 @@ public class Array {
    *
    * @param capacity
    */
-  public Array(int capacity) {
-    this.data = new int[capacity];
+  public ArrayList(int capacity) {
+    this.data = new Integer[capacity];
     this.size = 0;
   }
 
   /**
    * No argument constructor, default capacity is 10.
    */
-  public Array() {
+  public ArrayList() {
     this(DEFAULT_CAPACITY);
   }
 
@@ -46,6 +47,7 @@ public class Array {
    *
    * @return int
    */
+  @Override
   public int capacity() {
     return data.length;
   }
@@ -55,6 +57,7 @@ public class Array {
    *
    * @return int
    */
+  @Override
   public int size() {
     return size;
   }
@@ -64,6 +67,7 @@ public class Array {
    *
    * @return boolean
    */
+  @Override
   public boolean isEmpty() {
     return size == 0;
   }
@@ -73,7 +77,8 @@ public class Array {
    *
    * @param e
    */
-  public void addFirst(int e) {
+  @Override
+  public void addFirst(Integer e) {
     add(0, e);
   }
 
@@ -82,7 +87,8 @@ public class Array {
    *
    * @param e
    */
-  public void addLast(int e) {
+  @Override
+  public void addLast(Integer e) {
     add(size, e);
   }
 
@@ -92,7 +98,8 @@ public class Array {
    * @param index
    * @param e
    */
-  public void add(int index, int e) {
+  @Override
+  public void add(int index, Integer e) {
     Assert.isTrue(size < capacity(), "add element failed, the data array is full.");
     Assert.isTrue(index >= 0 && index <= size, "add element failed, index must be in [0, " + size + "].");
 
@@ -104,12 +111,33 @@ public class Array {
   }
 
   /**
+   * Get the first element of array.
+   *
+   * @return E
+   */
+  @Override
+  public Integer getFirst() {
+    return get(0);
+  }
+
+  /**
+   * Get the last element of array.
+   *
+   * @return E
+   */
+  @Override
+  public Integer getLast() {
+    return get(size - 1);
+  }
+
+  /**
    * Get element which is at the index of array.
    *
    * @param index
    * @return int
    */
-  public int get(int index) {
+  @Override
+  public Integer get(int index) {
     Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
 
     return data[index];
@@ -121,7 +149,8 @@ public class Array {
    * @param index
    * @param e
    */
-  public void set(int index, int e) {
+  @Override
+  public void set(int index, Integer e) {
     Assert.isTrue(index >= 0 && index < size, "set element failed, index must be in [0, " + size + ").");
 
     data[index] = e;
@@ -133,7 +162,8 @@ public class Array {
    * @param e
    * @return boolean
    */
-  public boolean contains(int e) {
+  @Override
+  public boolean contains(Integer e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e) {
         return true;
@@ -149,7 +179,8 @@ public class Array {
    * @param e
    * @return int
    */
-  public int indexOf(int e) {
+  @Override
+  public int indexOf(Integer e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e) {
         return i;
@@ -163,7 +194,8 @@ public class Array {
    *
    * @return int
    */
-  public int removeFirst() {
+  @Override
+  public Integer removeFirst() {
     return remove(0);
   }
 
@@ -172,7 +204,8 @@ public class Array {
    *
    * @return int
    */
-  public int removeLast() {
+  @Override
+  public Integer removeLast() {
     return remove(size - 1);
   }
 
@@ -182,7 +215,8 @@ public class Array {
    * @param index
    * @return int
    */
-  public int remove(int index) {
+  @Override
+  public Integer remove(int index) {
     Assert.isTrue(index >= 0 && index < size, "remove element failed, index must be in [0, " + size + ").");
 
     int ret = data[index];
@@ -198,7 +232,8 @@ public class Array {
    *
    * @param e
    */
-  public void removeElement(int e) {
+  @Override
+  public void removeElement(Integer e) {
     int index = indexOf(e);
     if (index != -1) {
       remove(index);

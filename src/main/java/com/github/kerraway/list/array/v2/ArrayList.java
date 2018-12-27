@@ -1,5 +1,6 @@
-package com.github.kerraway.array.v2;
+package com.github.kerraway.list.array.v2;
 
+import com.github.kerraway.list.List;
 import com.github.kerraway.util.Assert;
 
 /**
@@ -8,7 +9,7 @@ import com.github.kerraway.util.Assert;
  * @author kerraway
  * @date 2018/11/26
  */
-public class Array<E> {
+public class ArrayList<E> implements List<E> {
 
   /**
    * Default initial capacity.
@@ -33,7 +34,7 @@ public class Array<E> {
    *
    * @param capacity
    */
-  public Array(int capacity) {
+  public ArrayList(int capacity) {
     this.data = (E[]) new Object[capacity];
     this.size = 0;
   }
@@ -41,7 +42,7 @@ public class Array<E> {
   /**
    * No argument constructor, default capacity is 10.
    */
-  public Array() {
+  public ArrayList() {
     this(DEFAULT_CAPACITY);
   }
 
@@ -50,6 +51,7 @@ public class Array<E> {
    *
    * @return int
    */
+  @Override
   public int capacity() {
     return data.length;
   }
@@ -59,6 +61,7 @@ public class Array<E> {
    *
    * @return int
    */
+  @Override
   public int size() {
     return size;
   }
@@ -68,6 +71,7 @@ public class Array<E> {
    *
    * @return boolean
    */
+  @Override
   public boolean isEmpty() {
     return size == 0;
   }
@@ -77,6 +81,7 @@ public class Array<E> {
    *
    * @param e
    */
+  @Override
   public void addFirst(E e) {
     add(0, e);
   }
@@ -86,6 +91,7 @@ public class Array<E> {
    *
    * @param e
    */
+  @Override
   public void addLast(E e) {
     add(size, e);
   }
@@ -96,6 +102,7 @@ public class Array<E> {
    * @param index
    * @param e
    */
+  @Override
   public void add(int index, E e) {
     Assert.isTrue(index >= 0 && index <= size, "add element failed, index must be in [0, " + size + "].");
 
@@ -114,6 +121,7 @@ public class Array<E> {
    *
    * @return E
    */
+  @Override
   public E getFirst() {
     return get(0);
   }
@@ -123,6 +131,7 @@ public class Array<E> {
    *
    * @return E
    */
+  @Override
   public E getLast() {
     return get(size - 1);
   }
@@ -133,6 +142,7 @@ public class Array<E> {
    * @param index
    * @return E
    */
+  @Override
   public E get(int index) {
     Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
 
@@ -145,6 +155,7 @@ public class Array<E> {
    * @param index
    * @param e
    */
+  @Override
   public void set(int index, E e) {
     Assert.isTrue(index >= 0 && index < size, "set element failed, index must be in [0, " + size + ").");
 
@@ -157,6 +168,7 @@ public class Array<E> {
    * @param e
    * @return boolean
    */
+  @Override
   public boolean contains(E e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e || (data[i] != null && data[i].equals(e))) {
@@ -173,6 +185,7 @@ public class Array<E> {
    * @param e
    * @return int
    */
+  @Override
   public int indexOf(E e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e || (data[i] != null && data[i].equals(e))) {
@@ -187,6 +200,7 @@ public class Array<E> {
    *
    * @return E
    */
+  @Override
   public E removeFirst() {
     return remove(0);
   }
@@ -196,6 +210,7 @@ public class Array<E> {
    *
    * @return E
    */
+  @Override
   public E removeLast() {
     return remove(size - 1);
   }
@@ -206,6 +221,7 @@ public class Array<E> {
    * @param index
    * @return E
    */
+  @Override
   public E remove(int index) {
     Assert.isTrue(index >= 0 && index < size, "remove element failed, index must be in [0, " + size + ").");
 
@@ -228,6 +244,7 @@ public class Array<E> {
    *
    * @param e
    */
+  @Override
   public void removeElement(E e) {
     int index = indexOf(e);
     if (index != -1) {
