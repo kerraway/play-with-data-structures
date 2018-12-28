@@ -14,7 +14,7 @@ public class LeetCode203Test {
   @Test
   public void removeElements() {
     int[][][] argsArr = {
-        {{}, {2}},
+        {{2}, {2}},
         {{2, 2, 2, 3, 4, 5, 6}, {2}},
         {{2, 2, 2, 3, 4, 5, 6, 2, 2, 2, 7, 8}, {2}},
         {{1, 2, 3, 4, 5, 6, 7}, {100}}
@@ -24,11 +24,11 @@ public class LeetCode203Test {
       int[] values = args[0];
       int remove = args[1][0];
       //solution v1
-      assertTrue(isValid(leetCode203.removeElementsV1(newListNode(values), remove), remove));
+      assertTrue(isValid(leetCode203.removeElementsV1(new ListNode(values), remove), remove));
       //solution v2
-      assertTrue(isValid(leetCode203.removeElementsV2(newListNode(values), remove), remove));
+      assertTrue(isValid(leetCode203.removeElementsV2(new ListNode(values), remove), remove));
       //solution v3
-      assertTrue(isValid(leetCode203.removeElementsV3(newListNode(values), remove), remove));
+      assertTrue(isValid(leetCode203.removeElementsV3(new ListNode(values), remove), remove));
     }
   }
 
@@ -46,6 +46,7 @@ public class LeetCode203Test {
     return true;
   }
 
+  @Deprecated
   private ListNode newListNode(int[] values) {
     ListNode dummyHead = new ListNode(0);
     ListNode cursor = dummyHead;

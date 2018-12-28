@@ -1,5 +1,7 @@
 package com.github.kerraway.leetcode;
 
+import com.github.kerraway.util.Assert;
+
 /**
  * https://leetcode-cn.com/problems/remove-linked-list-elements/
  * <p>
@@ -79,6 +81,29 @@ public class LeetCode203 {
 
     ListNode(int x) {
       val = x;
+    }
+
+    ListNode(int[] arr) {
+      Assert.isTrue(arr != null && arr.length > 0, "arr must not be empty.");
+
+      this.val = arr[0];
+      ListNode cursor = this;
+      for (int i = 1; i < arr.length; i++) {
+        cursor.next = new ListNode(arr[i]);
+        cursor = cursor.next;
+      }
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder res = new StringBuilder();
+      ListNode cursor = this;
+      while (cursor != null) {
+        res.append(cursor.val).append(" -> ");
+        cursor = cursor.next;
+      }
+      res.append("NULL");
+      return res.toString();
     }
   }
 
