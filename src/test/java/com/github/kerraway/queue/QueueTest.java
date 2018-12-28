@@ -29,6 +29,10 @@ public class QueueTest {
     //LoopQueue V3
     Queue<Integer> loopQueueV3 = new com.github.kerraway.queue.loop.v3.LoopQueue<>();
     functionTest(loopQueueV3);
+
+    //LinkedQueue
+    Queue<Integer> linkedQueue = new LinkedQueue<>();
+    functionTest(linkedQueue);
   }
 
   @Test
@@ -48,6 +52,10 @@ public class QueueTest {
     //LoopQueue V3
     Queue<Integer> loopQueueV3 = new com.github.kerraway.queue.loop.v3.LoopQueue<>();
     performanceTest(loopQueueV3);
+
+    //LinkedQueue
+    Queue<Integer> linkedQueue = new LinkedQueue<>();
+    performanceTest(linkedQueue);
   }
 
   private void functionTest(Queue<Integer> queue) {
