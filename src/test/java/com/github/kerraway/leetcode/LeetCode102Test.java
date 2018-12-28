@@ -1,6 +1,6 @@
-package com.github.kerraway.queue;
+package com.github.kerraway.leetcode;
 
-import com.github.kerraway.queue.LeetCode102.TreeNode;
+import com.github.kerraway.leetcode.LeetCode102.TreeNode;
 import org.junit.Test;
 
 import java.util.ArrayList;

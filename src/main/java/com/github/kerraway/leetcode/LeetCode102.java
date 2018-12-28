@@ -1,5 +1,7 @@
-package com.github.kerraway.queue;
+package com.github.kerraway.leetcode;
 
+import com.github.kerraway.queue.ArrayQueue;
+import com.github.kerraway.queue.Queue;
 import javafx.util.Pair;
 
 import java.util.ArrayList;

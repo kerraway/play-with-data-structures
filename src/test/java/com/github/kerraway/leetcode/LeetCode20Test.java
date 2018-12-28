@@ -1,8 +1,7 @@
-package com.github.kerraway.stack;
+package com.github.kerraway.leetcode;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author kerraway
@@ -23,7 +22,7 @@ public class LeetCode20Test {
     for (Object[] args : argsArr) {
       String str = (String) args[0];
       boolean expected = (boolean) args[1];
-      assertEquals(expected, new LeetCode20().isValid(str));
+      Assert.assertEquals(expected, new LeetCode20().isValid(str));
     }
   }
 
