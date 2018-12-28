@@ -23,6 +23,10 @@ public class ListTest {
     //LinkedList V2
     List<Integer> linkedListV2 = new com.github.kerraway.list.linked.v2.LinkedList<>();
     functionTest(linkedListV2);
+
+    //LinkedList V3, use recursive algorithm
+    List<Integer> linkedListV3 = new com.github.kerraway.list.linked.v3.LinkedList<>();
+    functionTest(linkedListV3);
   }
 
   private void functionTest(List<Integer> list) {
