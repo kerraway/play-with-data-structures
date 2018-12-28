@@ -19,13 +19,16 @@ public class LeetCode203Test {
         {{2, 2, 2, 3, 4, 5, 6, 2, 2, 2, 7, 8}, {2}},
         {{1, 2, 3, 4, 5, 6, 7}, {100}}
     };
+    LeetCode203 leetCode203 = new LeetCode203();
     for (int[][] args : argsArr) {
       int[] values = args[0];
       int remove = args[1][0];
-
-      ListNode head = newListNode(values);
-      ListNode handledHead = new LeetCode203().removeElements(head, remove);
-      assertTrue(isValid(handledHead, remove));
+      //solution v1
+      assertTrue(isValid(leetCode203.removeElementsV1(newListNode(values), remove), remove));
+      //solution v2
+      assertTrue(isValid(leetCode203.removeElementsV2(newListNode(values), remove), remove));
+      //solution v3
+      assertTrue(isValid(leetCode203.removeElementsV3(newListNode(values), remove), remove));
     }
   }
 

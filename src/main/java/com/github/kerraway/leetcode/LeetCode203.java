@@ -13,7 +13,7 @@ package com.github.kerraway.leetcode;
  */
 public class LeetCode203 {
 
-  public ListNode removeElements(ListNode head, int val) {
+  public ListNode removeElementsV1(ListNode head, int val) {
     while (head != null && head.val == val) {
       ListNode deleteNode = head;
       head = head.next;
@@ -35,6 +35,42 @@ public class LeetCode203 {
       }
     }
     return head;
+  }
+
+  public ListNode removeElementsV2(ListNode head, int val) {
+    while (head != null && head.val == val) {
+      head = head.next;
+    }
+
+    if (head == null) {
+      return null;
+    }
+
+    ListNode prev = head;
+    while (prev.next != null) {
+      if (prev.next.val == val) {
+        prev.next = prev.next.next;
+      } else {
+        prev = prev.next;
+      }
+    }
+    return head;
+  }
+
+  public ListNode removeElementsV3(ListNode head, int val) {
+    ListNode dummyHead = new ListNode(-1);
+    dummyHead.next = head;
+
+    ListNode prev = dummyHead;
+    while (prev.next != null) {
+      if (prev.next.val == val) {
+        prev.next = prev.next.next;
+      } else {
+        prev = prev.next;
+      }
+    }
+
+    return dummyHead.next;
   }
 
   public static class ListNode {
