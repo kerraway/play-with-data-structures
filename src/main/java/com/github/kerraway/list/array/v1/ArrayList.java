@@ -47,7 +47,6 @@ public class ArrayList implements List<Integer> {
    *
    * @return int
    */
-  @Override
   public int capacity() {
     return data.length;
   }

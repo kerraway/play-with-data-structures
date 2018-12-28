@@ -4,7 +4,7 @@ import com.github.kerraway.list.List;
 import com.github.kerraway.util.Assert;
 
 /**
- * Array, support generic.
+ * Array list, support generic.
  *
  * @author kerraway
  * @date 2018/11/26
@@ -51,7 +51,6 @@ public class ArrayList<E> implements List<E> {
    *
    * @return int
    */
-  @Override
   public int capacity() {
     return data.length;
   }

@@ -7,13 +7,6 @@ package com.github.kerraway.list;
 public interface List<E> {
 
   /**
-   * Get capacity: the length of static array.
-   *
-   * @return int
-   */
-  int capacity();
-
-  /**
    * Get size of elements.
    *
    * @return int
