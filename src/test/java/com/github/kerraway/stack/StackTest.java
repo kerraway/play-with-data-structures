@@ -8,11 +8,22 @@ import static org.junit.Assert.*;
  * @author kerraway
  * @date 2018/11/28
  */
-public class ArrayStackTest {
+public class StackTest {
 
   @Test
-  public void test() {
-    Stack<Integer> stack = new ArrayStack<>();
+  public void functionTest() {
+    //ArrayStack
+    Stack<Integer> arrayStack = new ArrayStack<>();
+    functionTest(arrayStack);
+
+    //LinkedStack
+    Stack<Integer> linkedStack = new LinkedStack<>();
+    functionTest(linkedStack);
+  }
+
+  private void functionTest(Stack<Integer> stack) {
+    System.out.println("Stack function test for " + stack.getClass().getName());
+
     int size = 10;
     for (int i = 0; i < size; i++) {
       stack.push(i);
@@ -27,6 +38,6 @@ public class ArrayStackTest {
       assertEquals((Integer) (size - i - 1), popElement);
       System.out.println(stack);
     }
+    System.out.println();
   }
-
 }
