@@ -29,6 +29,8 @@ public class LeetCode203Test {
       assertTrue(isValid(leetCode203.removeElementsV2(new ListNode(values), remove), remove));
       //solution v3
       assertTrue(isValid(leetCode203.removeElementsV3(new ListNode(values), remove), remove));
+      //solution v4
+      assertTrue(isValid(leetCode203.removeElementsV4(new ListNode(values), remove), remove));
     }
   }
 

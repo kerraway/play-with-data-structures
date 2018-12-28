@@ -6,6 +6,7 @@ import com.github.kerraway.leetcode.LeetCode20Test;
 import com.github.kerraway.list.ListTest;
 import com.github.kerraway.list.array.v1.ArrayListV1Test;
 import com.github.kerraway.list.array.v2.ArrayListV2Test;
+import com.github.kerraway.list.linked.v3.SumTest;
 import com.github.kerraway.queue.QueueTest;
 import com.github.kerraway.stack.StackTest;
 import org.junit.runner.RunWith;
@@ -23,6 +24,9 @@ import org.junit.runners.Suite;
 
     //queue
     QueueTest.class,
+
+    //recursive
+    SumTest.class,
 
     //leetcode
     LeetCode20Test.class,

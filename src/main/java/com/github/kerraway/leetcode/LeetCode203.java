@@ -75,6 +75,22 @@ public class LeetCode203 {
     return dummyHead.next;
   }
 
+  /**
+   * Use recursive algorithm.
+   *
+   * @param head
+   * @param val
+   * @return ListNode
+   */
+  public ListNode removeElementsV4(ListNode head, int val) {
+    if (head == null) {
+      return null;
+    }
+
+    head.next = removeElementsV4(head.next, val);
+    return head.val == val ? head.next : head;
+  }
+
   public static class ListNode {
     int val;
     ListNode next;
