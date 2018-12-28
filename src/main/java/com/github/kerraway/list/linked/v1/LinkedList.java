@@ -96,7 +96,7 @@ public class LinkedList<E> implements List<E> {
 
   @Override
   public void set(int index, E e) {
-    Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
+    Assert.isTrue(index >= 0 && index < size, "set element failed, index must be in [0, " + size + ").");
 
     Node cursor = head;
     for (int i = 0; i < index; i++) {
@@ -129,7 +129,7 @@ public class LinkedList<E> implements List<E> {
 
   @Override
   public E remove(int index) {
-    Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
+    Assert.isTrue(index >= 0 && index < size, "remove element failed, index must be in [0, " + size + ").");
 
     Node prev = head;
     for (int i = 0; i < index - 1; i++) {
@@ -165,6 +165,8 @@ public class LinkedList<E> implements List<E> {
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
+    res.append("LinkedList: size ").append(size).append(", ");
+    res.append("elements ");
     Node cursor = head;
     while (cursor != null) {
       res.append(cursor).append(" -> ");

@@ -243,7 +243,7 @@ public class ArrayList implements List<Integer> {
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
-    res.append("Array: size = ").append(size).append(", ");
+    res.append("ArrayList: size = ").append(size).append(", ");
     res.append("capacity = ").append(capacity()).append(", ");
     res.append("elements = [");
     for (int i = 0; i < size; i++) {

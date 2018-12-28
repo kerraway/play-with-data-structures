@@ -2,9 +2,7 @@ package com.github.kerraway.list;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * @author kerraway
@@ -30,28 +28,37 @@ public class ListTest {
   private void functionTest(List<Integer> list) {
     System.out.println("List function test for " + list.getClass().getName());
 
-    for (int i = 0; i < 10; i++) {
+    int count = 10;
+    for (int i = 0; i < count; i++) {
       list.addFirst(i);
     }
+    assertEquals(count, list.size());
     System.out.println(list);
 
     list.remove(3);
+    count--;
+    assertEquals(count, list.size());
     System.out.println(list);
 
     int index = 2;
     Integer e = 777;
     list.add(index, e);
+    count++;
+    assertEquals(count, list.size());
     System.out.println(list);
 
     assertEquals(e, list.get(index));
     assertTrue(list.contains(e));
 
     list.removeElement(e);
+    count--;
+    assertEquals(count, list.size());
     System.out.println(list);
 
     assertFalse(list.contains(e));
 
     list.set(3, e);
+    assertEquals(count, list.size());
     System.out.println(list);
 
     assertTrue(list.contains(e));
