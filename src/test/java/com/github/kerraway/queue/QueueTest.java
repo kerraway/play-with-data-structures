@@ -68,6 +68,7 @@ public class QueueTest {
       assertEquals((Integer) i, queue.dequeue());
     }
     System.out.println(queue);
+    System.out.println();
   }
 
   private void performanceTest(Queue<Integer> queue) {
@@ -85,6 +86,7 @@ public class QueueTest {
 
     System.out.printf("Queue performance test for %s, use %s s.\n",
         queue.getClass().getName(), (System.nanoTime() - start) / 1000000000.0);
+    System.out.println();
   }
 
 }

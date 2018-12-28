@@ -81,15 +81,6 @@ public interface List<E> {
   boolean contains(E e);
 
   /**
-   * Find e from array, and return the index of e.
-   * If e doesn't exist in array, return - 1.
-   *
-   * @param e
-   * @return int
-   */
-  int indexOf(E e);
-
-  /**
    * Remove the first element of array, and return this element.
    *
    * @return E

@@ -112,7 +112,7 @@ public class ArrayList implements List<Integer> {
   /**
    * Get the first element of array.
    *
-   * @return E
+   * @return Integer
    */
   @Override
   public Integer getFirst() {
@@ -122,7 +122,7 @@ public class ArrayList implements List<Integer> {
   /**
    * Get the last element of array.
    *
-   * @return E
+   * @return Integer
    */
   @Override
   public Integer getLast() {
@@ -133,7 +133,7 @@ public class ArrayList implements List<Integer> {
    * Get element which is at the index of array.
    *
    * @param index
-   * @return int
+   * @return Integer
    */
   @Override
   public Integer get(int index) {
@@ -164,7 +164,8 @@ public class ArrayList implements List<Integer> {
   @Override
   public boolean contains(Integer e) {
     for (int i = 0; i < size; i++) {
-      if (data[i] == e) {
+      if ((data[i] == null || e == null)
+          || (data[i] != null && data[i].equals(e))) {
         return true;
       }
     }
@@ -178,10 +179,10 @@ public class ArrayList implements List<Integer> {
    * @param e
    * @return int
    */
-  @Override
   public int indexOf(Integer e) {
     for (int i = 0; i < size; i++) {
-      if (data[i] == e) {
+      if ((data[i] == null || e == null)
+          || (data[i] != null && data[i].equals(e))) {
         return i;
       }
     }
@@ -191,7 +192,7 @@ public class ArrayList implements List<Integer> {
   /**
    * Remove the first element of array, and return this element.
    *
-   * @return int
+   * @return Integer
    */
   @Override
   public Integer removeFirst() {
@@ -201,7 +202,7 @@ public class ArrayList implements List<Integer> {
   /**
    * Remove the last element of array, and return this element.
    *
-   * @return int
+   * @return Integer
    */
   @Override
   public Integer removeLast() {
@@ -212,7 +213,7 @@ public class ArrayList implements List<Integer> {
    * Remove element at the index of array, and return this element.
    *
    * @param index
-   * @return int
+   * @return Integer
    */
   @Override
   public Integer remove(int index) {

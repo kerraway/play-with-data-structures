@@ -4,7 +4,7 @@ import com.github.kerraway.list.List;
 import com.github.kerraway.util.Assert;
 
 /**
- * Linked list, support generic.
+ * Linked list, without dummy head.
  *
  * @author kerraway
  * @date 2018/12/27
@@ -75,73 +75,119 @@ public class LinkedList<E> implements List<E> {
 
   @Override
   public E getFirst() {
-    return null;
+    return get(0);
   }
 
   @Override
   public E getLast() {
-    return null;
+    return get(size - 1);
   }
 
   @Override
   public E get(int index) {
-    return null;
+    Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
+
+    Node cursor = head;
+    for (int i = 0; i < index; i++) {
+      cursor = cursor.next;
+    }
+    return cursor.e;
   }
 
   @Override
   public void set(int index, E e) {
+    Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
 
+    Node cursor = head;
+    for (int i = 0; i < index; i++) {
+      cursor = cursor.next;
+    }
+    cursor.e = e;
   }
 
   @Override
   public boolean contains(E e) {
+    Node cursor = head;
+    while (cursor != null) {
+      if (cursor.e == e || (cursor.e != null && cursor.e.equals(e))) {
+        return true;
+      }
+      cursor = cursor.next;
+    }
     return false;
   }
 
   @Override
-  public int indexOf(E e) {
-    return 0;
-  }
-
-  @Override
   public E removeFirst() {
-    return null;
+    return remove(0);
   }
 
   @Override
   public E removeLast() {
-    return null;
+    return remove(size - 1);
   }
 
   @Override
   public E remove(int index) {
-    return null;
+    Assert.isTrue(index >= 0 && index < size, "get element failed, index must be in [0, " + size + ").");
+
+    Node prev = head;
+    for (int i = 0; i < index - 1; i++) {
+      prev = prev.next;
+    }
+
+    Node retNode = prev.next;
+    prev.next = retNode.next;
+    retNode.next = null;
+    size--;
+
+    return retNode.e;
   }
 
   @Override
   public void removeElement(E e) {
+    Node prev = head;
+    while (prev != null && prev.next != null) {
+      if (prev.next.e == e || prev.next.e != null && prev.next.e.equals(e)) {
+        break;
+      }
+      prev = prev.next;
+    }
 
+    if (prev != null && prev.next != null) {
+      Node deleteNode = prev.next;
+      prev.next = deleteNode.next;
+      deleteNode.next = null;
+      size--;
+    }
   }
 
   @Override
   public String toString() {
-    return null;
+    StringBuilder res = new StringBuilder();
+    Node cursor = head;
+    while (cursor != null) {
+      res.append(cursor).append(" -> ");
+      cursor = cursor.next;
+    }
+    res.append("NULL");
+    return res.toString();
   }
 
   private class Node {
     E e;
     Node next;
 
-    public Node(E e, Node next) {
+    Node(E e, Node next) {
       this.e = e;
       this.next = next;
     }
 
-    public Node(E e) {
+    Node(E e) {
       this(e, null);
     }
 
-    public Node() {
+    Node() {
       this(null, null);
     }
 

@@ -184,7 +184,6 @@ public class ArrayList<E> implements List<E> {
    * @param e
    * @return int
    */
-  @Override
   public int indexOf(E e) {
     for (int i = 0; i < size; i++) {
       if (data[i] == e || (data[i] != null && data[i].equals(e))) {
