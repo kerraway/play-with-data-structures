@@ -101,6 +101,17 @@ public class BinarySearchTree<E extends Comparable<E>> {
   }
 
   /**
+   * Remove node that's e equals to e.
+   *
+   * @param e
+   */
+  public void remove(E e) {
+    Assert.notNull(e, "e must not be null.");
+
+    root = remove(root, e);
+  }
+
+  /**
    * Preorder traversal.
    */
   public void preorderTraverse() {
@@ -292,6 +303,49 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     node.right = removeMaxNode(node.right);
     return node;
+  }
+
+  /**
+   * Remove node with recursion.
+   *
+   * @param node
+   * @param e
+   */
+  private Node remove(Node node, E e) {
+    Assert.notNull(e, "e must not be null.");
+
+    if (node == null) {
+      return null;
+    }
+
+    if (e.compareTo(node.e) < 0) {
+      node.left = remove(node.left, e);
+      return node;
+    }
+    if (e.compareTo(node.e) > 0) {
+      node.right = remove(node.right, e);
+      return node;
+    }
+    //e.compareTo(node.e) == 0
+    if (node.left == null) {
+      Node rightNode = node.right;
+      node.right = null;
+      size--;
+      return rightNode;
+    }
+    if (node.right == null) {
+      Node leftNode = node.left;
+      node.left = null;
+      size--;
+      return leftNode;
+    }
+    //node's left and right aren't null, find a node that's e is greater than node's e,
+    //namely the min node in node's right, and use it to replace node.
+    Node successor = getMinNode(node.right);
+    successor.right = removeMinNode(node.right);
+    successor.left = node.left;
+    node.left = node.right = null;
+    return successor;
   }
 
   /**
