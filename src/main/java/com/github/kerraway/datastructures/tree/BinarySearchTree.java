@@ -43,6 +43,64 @@ public class BinarySearchTree<E extends Comparable<E>> {
   }
 
   /**
+   * Get min element from tree.
+   *
+   * @return E
+   */
+  public E getMin() {
+    if (isEmpty()) {
+      return null;
+    }
+
+    Node minNode = getMinNode(root);
+    return minNode.e;
+  }
+
+  /**
+   * Get max element from tree.
+   *
+   * @return E
+   */
+  public E getMax() {
+    if (isEmpty()) {
+      return null;
+    }
+
+    Node maxNode = getMaxNode(root);
+    return maxNode.e;
+  }
+
+  /**
+   * Remove min element from tree.
+   *
+   * @return E
+   */
+  public E removeMin() {
+    if (isEmpty()) {
+      return null;
+    }
+
+    E ret = getMin();
+    root = removeMinNode(root);
+    return ret;
+  }
+
+  /**
+   * Remove max element from tree.
+   *
+   * @return E
+   */
+  public E removeMax() {
+    if (isEmpty()) {
+      return null;
+    }
+
+    E ret = getMax();
+    root = removeMaxNode(root);
+    return ret;
+  }
+
+  /**
    * Preorder traversal.
    */
   public void preorderTraverse() {
@@ -172,6 +230,73 @@ public class BinarySearchTree<E extends Comparable<E>> {
     return contains(node.right, e);
   }
 
+  /**
+   * Get min node with recursion.
+   *
+   * @param node
+   * @return Node
+   */
+  private Node getMinNode(Node node) {
+    if (node.left == null) {
+      return node;
+    }
+
+    return getMinNode(node.left);
+  }
+
+  /**
+   * Get max node with recursion.
+   *
+   * @param node
+   * @return Node
+   */
+  private Node getMaxNode(Node node) {
+    if (node.right == null) {
+      return node;
+    }
+
+    return getMaxNode(node.right);
+  }
+
+  /**
+   * Remove min node with recursion.
+   *
+   * @param node
+   * @return Node
+   */
+  private Node removeMinNode(Node node) {
+    if (node.left == null) {
+      Node rightNode = node.right;
+      node.right = null;
+      size--;
+      return rightNode;
+    }
+
+    node.left = removeMinNode(node.left);
+    return node;
+  }
+
+  /**
+   * Remove max node with recursion.
+   *
+   * @param node
+   * @return Node
+   */
+  private Node removeMaxNode(Node node) {
+    if (node.right == null) {
+      Node leftNode = node.left;
+      node.left = null;
+      size--;
+      return leftNode;
+    }
+
+    node.right = removeMaxNode(node.right);
+    return node;
+  }
+
+  /**
+   * Preorder traversal with recursion.
+   */
   private void preorderTraverse(Node node) {
     if (node == null) {
       return;
@@ -182,6 +307,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     preorderTraverse(node.right);
   }
 
+  /**
+   * Inorder traversal with recursion.
+   */
   private void inorderTraverse(Node node) {
     if (node == null) {
       return;
@@ -192,6 +320,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
     inorderTraverse(node.right);
   }
 
+  /**
+   * Postorder traversal with recursion.
+   */
   private void postorderTraverse(Node node) {
     if (node == null) {
       return;
