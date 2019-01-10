@@ -2,6 +2,8 @@ package com.github.kerraway.datastructures.tree;
 
 import com.github.kerraway.datastructures.util.Assert;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -84,11 +86,36 @@ public class BinarySearchTree<E extends Comparable<E>> {
   }
 
   /**
-   * Post traversal.
+   * Postorder traversal.
    */
-  public void postTraverse() {
+  public void postorderTraverse() {
     System.out.print("Postorder traversal: ");
-    postTraverse(root);
+    postorderTraverse(root);
+    System.out.println();
+  }
+
+  /**
+   * Level order traversal.
+   */
+  public void levelOrderTraverse() {
+    System.out.print("Level order traversal: ");
+
+    if (root == null) {
+      return;
+    }
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+      Node node = queue.remove();
+      System.out.printf("%s ", node.e);
+
+      if (node.left != null) {
+        queue.add(node.left);
+      }
+      if (node.right != null) {
+        queue.add(node.right);
+      }
+    }
     System.out.println();
   }
 
@@ -165,13 +192,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
     inorderTraverse(node.right);
   }
 
-  private void postTraverse(Node node) {
+  private void postorderTraverse(Node node) {
     if (node == null) {
       return;
     }
 
-    postTraverse(node.left);
-    postTraverse(node.right);
+    postorderTraverse(node.left);
+    postorderTraverse(node.right);
     System.out.printf("%s ", node.e);
   }
 

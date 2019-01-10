@@ -2,8 +2,6 @@ package com.github.kerraway.datastructures.tree;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author kerraway
  * @date 2019/1/8
@@ -29,7 +27,9 @@ public class BinarySearchTreeTest {
     bst.preorderTraverse();
     bst.preorderTraverseWithoutRecursion();
     bst.inorderTraverse();
-    bst.postTraverse();
+    bst.postorderTraverse();
+
+    bst.levelOrderTraverse();
   }
 
 }
