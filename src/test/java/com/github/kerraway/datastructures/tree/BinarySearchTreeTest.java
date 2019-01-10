@@ -27,6 +27,7 @@ public class BinarySearchTreeTest {
     System.out.println(bst);
 
     bst.preorderTraverse();
+    bst.preorderTraverseWithoutRecursion();
     bst.inorderTraverse();
     bst.postTraverse();
   }

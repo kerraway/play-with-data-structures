@@ -2,6 +2,8 @@ package com.github.kerraway.datastructures.tree;
 
 import com.github.kerraway.datastructures.util.Assert;
 
+import java.util.Stack;
+
 /**
  * Binary search tree.
  *
@@ -44,6 +46,31 @@ public class BinarySearchTree<E extends Comparable<E>> {
   public void preorderTraverse() {
     System.out.print("Preorder traversal: ");
     preorderTraverse(root);
+    System.out.println();
+  }
+
+  /**
+   * Preorder traversal without recursion.
+   */
+  public void preorderTraverseWithoutRecursion() {
+    System.out.print("Preorder traversal without recursion: ");
+
+    if (root == null) {
+      return;
+    }
+    Stack<Node> stack = new Stack<>();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      Node node = stack.pop();
+      System.out.printf("%s ", node.e);
+
+      if (node.right != null) {
+        stack.push(node.right);
+      }
+      if (node.left != null) {
+        stack.push(node.left);
+      }
+    }
     System.out.println();
   }
 
