@@ -35,9 +35,10 @@ public class LeetCode94 {
     Stack<TreeNode> stack = new Stack<>();
     TreeNode cursor = root;
     while (cursor != null || !stack.isEmpty()) {
-      while (cursor != null) {
+      if (cursor != null) {
         stack.push(cursor);
         cursor = cursor.left;
+        continue;
       }
 
       cursor = stack.pop();
