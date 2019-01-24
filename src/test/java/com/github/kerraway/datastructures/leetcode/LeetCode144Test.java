@@ -57,5 +57,6 @@ public class LeetCode144Test {
     final LeetCode144 leetCode144 = new LeetCode144();
     assertEquals(expected, leetCode144.preorderTraversalV1(root));
     assertEquals(expected, leetCode144.preorderTraversalV2(root));
+    assertEquals(expected, leetCode144.preorderTraversalV3(root));
   }
 }

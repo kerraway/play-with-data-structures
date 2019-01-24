@@ -69,6 +69,28 @@ public class LeetCode144 {
     return res;
   }
 
+  public List<Integer> preorderTraversalV3(TreeNode root) {
+    List<Integer> res = new ArrayList<>();
+
+    if (root == null) {
+      return res;
+    }
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode cursor = root;
+    while (cursor != null || !stack.isEmpty()) {
+      if (cursor != null) {
+        res.add(cursor.val);
+        stack.push(cursor);
+        cursor = cursor.left;
+        continue;
+      }
+
+      cursor = stack.pop();
+      cursor = cursor.right;
+    }
+    return res;
+  }
+
   /**
    * Definition for a binary tree node.
    */
