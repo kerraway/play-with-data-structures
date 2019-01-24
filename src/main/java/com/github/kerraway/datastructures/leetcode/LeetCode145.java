@@ -93,6 +93,34 @@ public class LeetCode145 {
   }
 
   /**
+   * Use two stacks, reverse preorder traversal.
+   *
+   * @param root
+   * @return List<Integer>
+   */
+  public List<Integer> postorderTraversalV3(TreeNode root) {
+    Stack<TreeNode> stack = new Stack<>();
+    Stack<TreeNode> preorderRes = new Stack<>();
+
+    TreeNode cursor = root;
+    while (cursor != null || !stack.isEmpty()) {
+      if (cursor != null) {
+        stack.push(cursor);
+        preorderRes.push(cursor);
+        cursor = cursor.right;
+      } else {
+        cursor = stack.pop();
+        cursor = cursor.left;
+      }
+    }
+    List<Integer> res = new ArrayList<>();
+    while (!preorderRes.isEmpty()) {
+      res.add(preorderRes.pop().val);
+    }
+    return res;
+  }
+
+  /**
    * TagNode is used to record whether the TreeNode has been visited.
    */
   public static class TagNode {
