@@ -26,7 +26,13 @@ import java.util.Stack;
  */
 public class LeetCode145 {
 
-  public List<Integer> postorderTraversal(TreeNode root) {
+  /**
+   * Use TagNode to record whether the TreeNode has been visited.
+   *
+   * @param root
+   * @return List<Integer>
+   */
+  public List<Integer> postorderTraversalV1(TreeNode root) {
     List<Integer> res = new ArrayList<>();
 
     if (root == null) {
@@ -55,6 +61,38 @@ public class LeetCode145 {
   }
 
   /**
+   * Use two stacks, reverse preorder traversal.
+   *
+   * @param root
+   * @return List<Integer>
+   */
+  public List<Integer> postorderTraversalV2(TreeNode root) {
+    List<Integer> res = new ArrayList<>();
+
+    if (root == null) {
+      return res;
+    }
+    Stack<TreeNode> stack = new Stack<>();
+    Stack<Integer> preorderRes = new Stack<>();
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      TreeNode cursor = stack.pop();
+      preorderRes.push(cursor.val);
+
+      if (cursor.left != null) {
+        stack.push(cursor.left);
+      }
+      if (cursor.right != null) {
+        stack.push(cursor.right);
+      }
+    }
+    while (!preorderRes.isEmpty()) {
+      res.add(preorderRes.pop());
+    }
+    return res;
+  }
+
+  /**
    * TagNode is used to record whether the TreeNode has been visited.
    */
   public static class TagNode {
@@ -64,6 +102,14 @@ public class LeetCode145 {
     public TagNode(TreeNode node) {
       this.node = node;
       this.isVisited = false;
+    }
+
+    @Override
+    public String toString() {
+      return "TagNode{" +
+          "node=" + node +
+          ", isVisited=" + isVisited +
+          '}';
     }
   }
 
@@ -78,6 +124,11 @@ public class LeetCode145 {
 
     TreeNode(int val) {
       this.val = val;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(val);
     }
   }
 

@@ -37,12 +37,14 @@ public class LeetCode145Test {
    */
   @Test
   public void postorderTraversal() {
+    final LeetCode145 leetCode145 = new LeetCode145();
+
     TreeNode root = new TreeNode(1);
     root.right = new TreeNode(2);
     root.right.left = new TreeNode(3);
     List<Integer> expected = Arrays.asList(3, 2, 1);
-    List<Integer> actual = new LeetCode145().postorderTraversal(root);
-    assertEquals(expected, actual);
+    assertEquals(expected, leetCode145.postorderTraversalV1(root));
+    assertEquals(expected, leetCode145.postorderTraversalV2(root));
 
     root = new TreeNode(1);
     root.left = new TreeNode(3);
@@ -51,7 +53,7 @@ public class LeetCode145Test {
     root.right = new TreeNode(5);
     root.right.right = new TreeNode(6);
     expected = Arrays.asList(2, 4, 3, 6, 5, 1);
-    actual = new LeetCode145().postorderTraversal(root);
-    assertEquals(expected, actual);
+    assertEquals(expected, leetCode145.postorderTraversalV1(root));
+    assertEquals(expected, leetCode145.postorderTraversalV2(root));
   }
 }
