@@ -191,6 +191,41 @@ public class LeetCode145 {
   }
 
   /**
+   * Use a previous pointer to record the last visited node.
+   *
+   * @param root
+   * @return List<Integer>
+   */
+  public List<Integer> postorderTraversalV6(TreeNode root) {
+    List<Integer> res = new ArrayList<>();
+
+    if (root == null) {
+      return res;
+    }
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode prev = null;
+    TreeNode cursor = root;
+    while (cursor != null || !stack.isEmpty()) {
+      if (cursor != null) {
+        stack.push(cursor);
+        cursor = cursor.left;
+        continue;
+      }
+
+      cursor = stack.pop();
+      if (cursor.right == null || cursor.right == prev) {
+        res.add(cursor.val);
+        prev = cursor;
+        cursor = null;
+      } else {
+        stack.push(cursor);
+        cursor = cursor.right;
+      }
+    }
+    return res;
+  }
+
+  /**
    * TagNode is used to record whether the TreeNode has been visited.
    */
   public static class TagNode {
