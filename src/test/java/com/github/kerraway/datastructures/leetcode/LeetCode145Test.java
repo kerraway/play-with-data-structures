@@ -27,13 +27,13 @@ public class LeetCode145Test {
    *
    * in:
    * <pre>
-   *      1
+   *      4
    *     / \
-   *    3   5
+   *    2   5
    *   / \   \
-   *  2   4   6
+   *  1   3   6
    * </pre>
-   * out: 2, 4, 3, 6, 5, 1
+   * out: 1, 3, 2, 6, 5, 4
    */
   @Test
   public void postorderTraversal() {
@@ -43,13 +43,13 @@ public class LeetCode145Test {
     List<Integer> expected = Arrays.asList(3, 2, 1);
     postorderTraversal(root, expected);
 
-    root = new TreeNode(1);
-    root.left = new TreeNode(3);
-    root.left.left = new TreeNode(2);
-    root.left.right = new TreeNode(4);
+    root = new TreeNode(4);
+    root.left = new TreeNode(2);
+    root.left.left = new TreeNode(1);
+    root.left.right = new TreeNode(3);
     root.right = new TreeNode(5);
     root.right.right = new TreeNode(6);
-    expected = Arrays.asList(2, 4, 3, 6, 5, 1);
+    expected = Arrays.asList(1, 3, 2, 6, 5, 4);
     postorderTraversal(root, expected);
   }
 
