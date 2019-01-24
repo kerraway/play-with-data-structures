@@ -58,5 +58,6 @@ public class LeetCode145Test {
     assertEquals(expected, leetCode145.postorderTraversalV1(root));
     assertEquals(expected, leetCode145.postorderTraversalV2(root));
     assertEquals(expected, leetCode145.postorderTraversalV3(root));
+    assertEquals(expected, leetCode145.postorderTraversalV4(root));
   }
 }
