@@ -5,8 +5,8 @@ import com.github.kerraway.datastructures.map.LinkedListMap;
 import com.github.kerraway.datastructures.map.Map;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
@@ -96,14 +96,14 @@ public class LeetCode350 {
   }
 
   /**
-   * Use {@link HashMap}.
+   * Use {@link TreeMap}.
    *
    * @param nums1
    * @param nums2
    * @return int[]
    */
   public int[] intersectV3(int[] nums1, int[] nums2) {
-    java.util.Map<Integer, Integer> map = new HashMap<>();
+    java.util.Map<Integer, Integer> map = new TreeMap<>();
     for (int num : nums1) {
       map.merge(num, 1, (a, b) -> a + b);
     }
