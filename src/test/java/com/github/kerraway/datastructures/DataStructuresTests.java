@@ -6,6 +6,7 @@ import com.github.kerraway.datastructures.list.array.v1.ArrayListV1Test;
 import com.github.kerraway.datastructures.list.array.v2.ArrayListV2Test;
 import com.github.kerraway.datastructures.list.linked.v3.SumTest;
 import com.github.kerraway.datastructures.queue.QueueTest;
+import com.github.kerraway.datastructures.set.SetTest;
 import com.github.kerraway.datastructures.stack.StackTest;
 import com.github.kerraway.datastructures.tree.BinarySearchTreeTest;
 import org.junit.runner.RunWith;
@@ -23,6 +24,9 @@ import org.junit.runners.Suite;
 
     //queue
     QueueTest.class,
+
+    //set
+    SetTest.class,
 
     //recursive
     SumTest.class,

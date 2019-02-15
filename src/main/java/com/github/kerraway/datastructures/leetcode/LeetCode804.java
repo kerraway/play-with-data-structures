@@ -1,5 +1,8 @@
 package com.github.kerraway.datastructures.leetcode;
 
+import com.github.kerraway.datastructures.set.BinarySearchTreeSet;
+import com.github.kerraway.datastructures.set.LinkedListSet;
+import com.github.kerraway.datastructures.set.Set;
 import com.github.kerraway.datastructures.tree.BinarySearchTree;
 
 /**
@@ -41,7 +44,13 @@ public class LeetCode804 {
   private static final String[] MORSE_CODES = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
       "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
-  public int uniqueMorseRepresentations(String[] words) {
+  /**
+   * Use {@link BinarySearchTree}.
+   *
+   * @param words
+   * @return int
+   */
+  public int uniqueMorseRepresentationsV1(String[] words) {
     BinarySearchTree<String> bst = new BinarySearchTree<>();
     for (int i = 0; i < words.length; i++) {
       String word = words[i];
@@ -49,6 +58,38 @@ public class LeetCode804 {
       bst.add(morseCode);
     }
     return bst.size();
+  }
+
+  /**
+   * Use {@link BinarySearchTreeSet}.
+   *
+   * @param words
+   * @return int
+   */
+  public int uniqueMorseRepresentationsV2(String[] words) {
+    Set<String> set = new BinarySearchTreeSet<>();
+    for (int i = 0; i < words.length; i++) {
+      String word = words[i];
+      String morseCode = buildMorseCode(word);
+      set.add(morseCode);
+    }
+    return set.size();
+  }
+
+  /**
+   * Use {@link LinkedListSet}.
+   *
+   * @param words
+   * @return int
+   */
+  public int uniqueMorseRepresentationsV3(String[] words) {
+    Set<String> set = new LinkedListSet<>();
+    for (int i = 0; i < words.length; i++) {
+      String word = words[i];
+      String morseCode = buildMorseCode(word);
+      set.add(morseCode);
+    }
+    return set.size();
   }
 
   private String buildMorseCode(String word) {

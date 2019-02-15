@@ -22,7 +22,12 @@ public class LeetCode804Test {
     for (Pair<String[], Integer> pair : argsArr) {
       String[] words = pair.getKey();
       int count = pair.getValue();
-      assertEquals(count, new LeetCode804().uniqueMorseRepresentations(words));
+      //solution v1
+      assertEquals(count, new LeetCode804().uniqueMorseRepresentationsV1(words));
+      //solution v2
+      assertEquals(count, new LeetCode804().uniqueMorseRepresentationsV2(words));
+      //solution v3
+      assertEquals(count, new LeetCode804().uniqueMorseRepresentationsV3(words));
     }
   }
 
