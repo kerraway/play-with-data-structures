@@ -1,7 +1,7 @@
 package com.github.kerraway.datastructures.list;
 
 /**
- * @author 小柯
+ * @author kerraway
  * @date 2018/12/27
  */
 public interface List<E> {
