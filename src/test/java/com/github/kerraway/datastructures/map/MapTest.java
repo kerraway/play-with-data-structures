@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static com.github.kerraway.datastructures.Constants.BOOK_PATH_PRIDE_AND_PREJUDICE;
+import static org.junit.Assert.assertFalse;
 
 /**
  * @author kerraway
@@ -36,7 +37,13 @@ public class MapTest {
       }
     }
     System.out.printf("Total words: %s, total different words: %s.\n", words.size(), map.size());
-    System.out.printf("Word frequency, pride: %s, prejudice: %s.\n", map.get("pride"), map.get("prejudice"));
+
+    String[] removes = {"pride", "prejudice", "and", "is", "the"};
+    for (String remove : removes) {
+      System.out.printf("Word frequency '%s': %s.\n", remove, map.get(remove));
+      map.remove(remove);
+      assertFalse(map.contains(remove));
+    }
 
     System.out.printf("Map function test for %s, use %s s.\n\n",
         map.getClass().getName(), (System.nanoTime() - start) / 1000000000.0);
