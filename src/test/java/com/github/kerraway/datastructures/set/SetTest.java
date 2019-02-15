@@ -5,22 +5,22 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static com.github.kerraway.datastructures.Constants.BOOK_PATH_A_TALE_OF_TWO_CITIES;
+import static com.github.kerraway.datastructures.Constants.BOOK_PATH_PRIDE_AND_PREJUDICE;
+
 /**
  * @author kerraway
  * @date 2019/1/24
  */
 public class SetTest {
 
-  private static final String BOOK_A_TALE_OF_TWO_CITIES = "books/a-tale-of-two-cities.txt";
-  private static final String BOOK_PRIDE_AND_PREJUDICE = "books/pride-and-prejudice.txt";
-
   @Test
   public void functionTest() {
-    functionTest(new BinarySearchTreeSet<>(), BOOK_A_TALE_OF_TWO_CITIES);
-    functionTest(new BinarySearchTreeSet<>(), BOOK_PRIDE_AND_PREJUDICE);
+    functionTest(new BinarySearchTreeSet<>(), BOOK_PATH_A_TALE_OF_TWO_CITIES);
+    functionTest(new BinarySearchTreeSet<>(), BOOK_PATH_PRIDE_AND_PREJUDICE);
 
-    functionTest(new LinkedListSet<>(), BOOK_A_TALE_OF_TWO_CITIES);
-    functionTest(new LinkedListSet<>(), BOOK_PRIDE_AND_PREJUDICE);
+    functionTest(new LinkedListSet<>(), BOOK_PATH_A_TALE_OF_TWO_CITIES);
+    functionTest(new LinkedListSet<>(), BOOK_PATH_PRIDE_AND_PREJUDICE);
   }
 
   private void functionTest(Set<String> set, String filePath) {
