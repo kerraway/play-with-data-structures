@@ -155,7 +155,7 @@ public class BinarySearchTreeMap<K extends Comparable<K>, V> implements Map<K, V
     //node's left and right subtrees aren't null
     //gets a successor which is the minimum node of node's right subtree
     //and uses it to replace the node
-    Node successor = getMinNode(node);
+    Node successor = getMinNode(node.right);
     successor.right = removeMinNode(node.right);
     successor.left = node.left;
     node.left = node.right = null;
