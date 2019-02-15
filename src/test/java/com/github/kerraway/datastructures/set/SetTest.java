@@ -11,10 +11,16 @@ import java.util.List;
  */
 public class SetTest {
 
+  private static final String BOOK_A_TALE_OF_TWO_CITIES = "books/a-tale-of-two-cities.txt";
+  private static final String BOOK_PRIDE_AND_PREJUDICE = "books/pride-and-prejudice.txt";
+
   @Test
   public void functionTest() {
-    functionTest(new BinarySearchTreeSet<>(), "books/a-tale-of-two-cities.txt");
-    functionTest(new BinarySearchTreeSet<>(), "books/pride-and-prejudice.txt");
+    functionTest(new BinarySearchTreeSet<>(), BOOK_A_TALE_OF_TWO_CITIES);
+    functionTest(new BinarySearchTreeSet<>(), BOOK_PRIDE_AND_PREJUDICE);
+
+    functionTest(new LinkedListSet<>(),BOOK_A_TALE_OF_TWO_CITIES);
+    functionTest(new LinkedListSet<>(),BOOK_PRIDE_AND_PREJUDICE);
   }
 
   private void functionTest(Set<String> set, String filePath) {
