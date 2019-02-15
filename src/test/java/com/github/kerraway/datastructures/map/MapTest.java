@@ -15,7 +15,7 @@ public class MapTest {
 
   @Test
   public void functionTest() {
-//    functionTest(new );
+    functionTest(new LinkedListMap<>());
   }
 
   private void functionTest(Map<String, Integer> map) {
