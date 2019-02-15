@@ -95,17 +95,17 @@ public class LinkedListMap<K, V> implements Map<K, V> {
     V value;
     Node next;
 
-    public Node(K key, V value, Node next) {
+    Node(K key, V value, Node next) {
       this.key = key;
       this.value = value;
       this.next = next;
     }
 
-    public Node(K key, V value) {
+    Node(K key, V value) {
       this(key, value, null);
     }
 
-    public Node() {
+    Node() {
       this(null, null, null);
     }
 
