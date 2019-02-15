@@ -19,19 +19,22 @@ public class SetTest {
     functionTest(new BinarySearchTreeSet<>(), BOOK_A_TALE_OF_TWO_CITIES);
     functionTest(new BinarySearchTreeSet<>(), BOOK_PRIDE_AND_PREJUDICE);
 
-    functionTest(new LinkedListSet<>(),BOOK_A_TALE_OF_TWO_CITIES);
-    functionTest(new LinkedListSet<>(),BOOK_PRIDE_AND_PREJUDICE);
+    functionTest(new LinkedListSet<>(), BOOK_A_TALE_OF_TWO_CITIES);
+    functionTest(new LinkedListSet<>(), BOOK_PRIDE_AND_PREJUDICE);
   }
 
   private void functionTest(Set<String> set, String filePath) {
     System.out.printf("Set function test for %s, book: %s\n", set.getClass().getName(), filePath);
 
+    long start = System.nanoTime();
     List<String> words = FileUtils.readWords(filePath);
-    System.out.println("Total words: " + words.size());
     for (String word : words) {
       set.add(word.toLowerCase());
     }
-    System.out.println("Total different words: " + set.size());
+    System.out.printf("Total words: %s, total different words: %s.\n", words.size(), set.size());
+
+    System.out.printf("Set function test for %s, book: %s, use %s s.\n\n",
+        set.getClass().getName(), filePath, (System.nanoTime() - start) / 1000000000.0);
   }
 
 }

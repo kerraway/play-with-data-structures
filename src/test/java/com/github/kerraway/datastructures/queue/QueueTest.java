@@ -93,9 +93,8 @@ public class QueueTest {
       queue.dequeue();
     }
 
-    System.out.printf("Queue performance test for %s, use %s s.\n",
+    System.out.printf("Queue performance test for %s, use %s s.\n\n",
         queue.getClass().getName(), (System.nanoTime() - start) / 1000000000.0);
-    System.out.println();
   }
 
 }
