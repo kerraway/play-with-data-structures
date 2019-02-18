@@ -1,5 +1,6 @@
 package com.github.kerraway.datastructures;
 
+import com.github.kerraway.datastructures.heap.MaxHeapTest;
 import com.github.kerraway.datastructures.leetcode.*;
 import com.github.kerraway.datastructures.list.ListTest;
 import com.github.kerraway.datastructures.list.array.v1.ArrayListV1Test;
@@ -38,6 +39,9 @@ import org.junit.runners.Suite;
     //tree
     BinarySearchTreeTest.class,
 
+    //heap
+    MaxHeapTest.class,
+
     //leetcode
     LeetCode20Test.class,
     LeetCode102Test.class,
@@ -48,6 +52,7 @@ import org.junit.runners.Suite;
     LeetCode144Test.class,
     LeetCode349Test.class,
     LeetCode350Test.class,
+    LeetCode347Test.class,
 })
 public class DataStructuresTests {
 }

@@ -47,6 +47,19 @@ public class ArrayList<E> implements List<E> {
   }
 
   /**
+   * Constructor, init static array by the param array.
+   *
+   * @param array
+   */
+  public ArrayList(E[] array) {
+    this.data = (E[]) new Object[array.length];
+    for (int i = 0; i < array.length; i++) {
+      data[i] = array[i];
+    }
+    this.size = array.length;
+  }
+
+  /**
    * Get capacity: the length of static array.
    *
    * @return int
