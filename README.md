@@ -11,7 +11,7 @@ In this repository, I will write some common data structures:
 7. segment tree
 8. trie
 9. AVL tree
-10. red and black tree
+10. red-black tree
 11. hash table
 
 and use these data structures to solve some leetcode problems.
