@@ -11,6 +11,7 @@ import com.github.kerraway.datastructures.queue.QueueTest;
 import com.github.kerraway.datastructures.set.SetTest;
 import com.github.kerraway.datastructures.stack.StackTest;
 import com.github.kerraway.datastructures.tree.BinarySearchTreeTest;
+import com.github.kerraway.datastructures.tree.SegmentTreeTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -38,6 +39,7 @@ import org.junit.runners.Suite;
 
     //tree
     BinarySearchTreeTest.class,
+    SegmentTreeTest.class,
 
     //heap
     MaxHeapTest.class,
@@ -53,6 +55,7 @@ import org.junit.runners.Suite;
     LeetCode349Test.class,
     LeetCode350Test.class,
     LeetCode347Test.class,
+    LeetCode303Test.class,
 })
 public class DataStructuresTests {
 }

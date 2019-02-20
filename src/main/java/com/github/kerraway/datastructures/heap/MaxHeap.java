@@ -187,7 +187,7 @@ public class MaxHeap<E extends Comparable<E>> {
 
   /**
    * The array is a complete binary tree.
-   * According to the param index, returns the index of the left child node.
+   * According to the index param, returns the index of its left child node.
    *
    * @param index
    * @return int
@@ -198,7 +198,7 @@ public class MaxHeap<E extends Comparable<E>> {
 
   /**
    * The array is a complete binary tree.
-   * According to the param index, returns the index of the right child node.
+   * According to the index param, returns the index of its right child node.
    *
    * @param index
    * @return int
