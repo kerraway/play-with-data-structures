@@ -130,6 +130,9 @@ public class SegmentTree<E> {
    * @param right
    */
   private void buildSegmentTree(int treeIndex, int left, int right) {
+    if (left > right) {
+      return;
+    }
     if (left == right) {
       tree[treeIndex] = data[left];
       return;
