@@ -56,6 +56,7 @@ import org.junit.runners.Suite;
     LeetCode350Test.class,
     LeetCode347Test.class,
     LeetCode303Test.class,
+    LeetCode307Test.class
 })
 public class DataStructuresTests {
 }
