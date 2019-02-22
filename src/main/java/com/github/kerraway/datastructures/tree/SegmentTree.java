@@ -67,6 +67,19 @@ public class SegmentTree<E> {
     return query(0, 0, size() - 1, queryL, queryR);
   }
 
+  /**
+   * Sets the element at the index param to the e param.
+   *
+   * @param index
+   * @param e
+   */
+  public void set(int index, E e) {
+    Assert.isTrue(index >= 0 && index < size(), "index must be in [0, " + size() + ").");
+
+    data[index] = e;
+    set(0, 0, size() - 1, index, e);
+  }
+
   @Override
   public String toString() {
     StringBuilder res = new StringBuilder();
@@ -83,6 +96,35 @@ public class SegmentTree<E> {
     }
     res.append(']');
     return res.toString();
+  }
+
+  /**
+   * Sets the element at the index param to the e param in the segment tree
+   * which root is treeIndex and range is [left, right].
+   *
+   * @param treeIndex
+   * @param left
+   * @param right
+   * @param index
+   * @param e
+   */
+  private void set(int treeIndex, int left, int right, int index, E e) {
+    if (left == right) {
+      tree[treeIndex] = e;
+      return;
+    }
+
+    //divide the element at the treeIndex to parts: [left, middle] & [middle + 1, right]
+    int middle = left + (right - left) / 2;
+    int leftTreeIndex = getLeftChildIndex(treeIndex);
+    int rightTreeIndex = getRightChildIndex(treeIndex);
+    if (index >= middle + 1) {
+      set(rightTreeIndex, middle + 1, right, index, e);
+    } else {
+      set(leftTreeIndex, left, middle, index, e);
+    }
+
+    tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
   }
 
   /**

@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Random;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author kerraway
  * @date 2019/2/20
@@ -17,6 +19,8 @@ public class SegmentTreeTest {
     constructorFunctionTest();
     //query test
     queryFunctionTest();
+    //set and query test
+    setAndQueryFunctionTest();
   }
 
   private void constructorFunctionTest() {
@@ -48,11 +52,34 @@ public class SegmentTreeTest {
     }
     SegmentTree<Integer> segmentTree = new SegmentTree<>(nums, (a, b) -> a + b);
 
-    int count = 100;
+    int count = 10;
     for (int i = 0; i < count; i++) {
       int queryR = random.nextInt(n);
       int queryL = random.nextInt(queryR);
       System.out.printf("Sum of [%s, %s]: %s\n", queryL, queryR, segmentTree.query(queryL, queryR));
+    }
+    System.out.println();
+  }
+
+  private void setAndQueryFunctionTest() {
+    Integer[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    SegmentTree<Integer> segmentTree4Sum = new SegmentTree<>(nums, (a, b) -> a + b);
+    System.out.println("Init: " + segmentTree4Sum);
+
+    Integer sum = Arrays.stream(nums)
+        .mapToInt(Integer::intValue)
+        .sum();
+    assertEquals(sum, segmentTree4Sum.query(0, segmentTree4Sum.size() - 1));
+
+    int[][] argsArr = {{1, 1}, {0, -1}, {2, 1}, {7, 5}};
+    for (int[] ints : argsArr) {
+      int index = ints[0];
+      int plus = ints[1];
+      Integer integer = segmentTree4Sum.get(index);
+      segmentTree4Sum.set(index, integer + plus);
+      System.out.printf("After add %s on the element at index %s: %s\n", plus, index, segmentTree4Sum);
+      sum += plus;
+      assertEquals(sum, segmentTree4Sum.query(0, segmentTree4Sum.size() - 1));
     }
   }
 
