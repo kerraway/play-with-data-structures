@@ -1,6 +1,5 @@
 package com.github.kerraway.datastructures;
 
-import com.github.kerraway.datastructures.heap.MaxHeapTest;
 import com.github.kerraway.datastructures.leetcode.*;
 import com.github.kerraway.datastructures.list.ListTest;
 import com.github.kerraway.datastructures.list.array.v1.ArrayListV1Test;
@@ -12,6 +11,7 @@ import com.github.kerraway.datastructures.set.SetTest;
 import com.github.kerraway.datastructures.stack.StackTest;
 import com.github.kerraway.datastructures.tree.BinarySearchTreeTest;
 import com.github.kerraway.datastructures.tree.SegmentTreeTest;
+import com.github.kerraway.datastructures.tree.heap.MaxHeapTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

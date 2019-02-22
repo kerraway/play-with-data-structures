@@ -1,6 +1,6 @@
 package com.github.kerraway.datastructures.queue;
 
-import com.github.kerraway.datastructures.heap.MaxHeap;
+import com.github.kerraway.datastructures.tree.heap.MaxHeap;
 
 /**
  * @author kerraway

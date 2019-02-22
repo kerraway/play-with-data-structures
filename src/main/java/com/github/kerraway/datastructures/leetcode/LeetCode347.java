@@ -1,8 +1,8 @@
 package com.github.kerraway.datastructures.leetcode;
 
-import com.github.kerraway.datastructures.heap.MaxHeap;
 import com.github.kerraway.datastructures.queue.PriorityQueue;
 import com.github.kerraway.datastructures.queue.Queue;
+import com.github.kerraway.datastructures.tree.heap.MaxHeap;
 
 import java.util.*;
 

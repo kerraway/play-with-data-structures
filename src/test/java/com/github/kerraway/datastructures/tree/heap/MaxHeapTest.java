@@ -1,4 +1,4 @@
-package com.github.kerraway.datastructures.heap;
+package com.github.kerraway.datastructures.tree.heap;
 
 import org.junit.Test;
 

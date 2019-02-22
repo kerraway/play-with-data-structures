@@ -1,4 +1,4 @@
-package com.github.kerraway.datastructures.heap;
+package com.github.kerraway.datastructures.tree.heap;
 
 import com.github.kerraway.datastructures.list.array.v2.ArrayList;
 import com.github.kerraway.datastructures.util.Assert;
