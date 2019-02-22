@@ -1,46 +1,47 @@
-package com.github.kerraway.datastructures.tree.trie;
+package com.github.kerraway.datastructures.leetcode;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 /**
+ * 208. 实现 Trie (前缀树)
+ * https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+ * <p>
+ * 实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。
+ * <p>
+ * 示例:
+ * <pre>
+ * Trie trie = new Trie();
+ * trie.insert("apple");
+ * trie.search("apple");   // 返回 true
+ * trie.search("app");     // 返回 false
+ * trie.startsWith("app"); // 返回 true
+ * trie.insert("app");
+ * trie.search("app");     // 返回 true
+ * </pre>
+ * <p>
+ * 说明:
+ * 你可以假设所有的输入都是由小写字母 a-z 构成的。
+ * 保证所有输入均为非空字符串。
+ *
  * @author kerraway
  * @date 2019/2/22
  */
-public class Trie {
+public class LeetCode208 {
 
   private Node root;
-  private int size;
 
-  public Trie() {
+  /**
+   * Initialize your data structure here.
+   */
+  public LeetCode208() {
     this.root = new Node();
-    this.size = 0;
   }
 
   /**
-   * Gets the count of words from the trie.
-   *
-   * @return int
+   * Inserts a word into the trie.
    */
-  public int size() {
-    return size;
-  }
-
-  /**
-   * If the count of words equals to 0, returns true.
-   *
-   * @return boolean
-   */
-  public boolean isEmpty() {
-    return size == 0;
-  }
-
-  /**
-   * Adds word into the trie.
-   *
-   * @param word
-   */
-  public void add(String word) {
+  public void insert(String word) {
     Node cursor = root;
     for (int i = 0; i < word.length(); i++) {
       char ch = word.charAt(i);
@@ -50,20 +51,13 @@ public class Trie {
       }
       cursor = next;
     }
-
-    if (!cursor.isWord) {
-      cursor.isWord = true;
-      size++;
-    }
+    cursor.isWord = true;
   }
 
   /**
-   * If the trie contains word, returns true.
-   *
-   * @param word
-   * @return boolean
+   * Returns if the word is in the trie.
    */
-  public boolean contains(String word) {
+  public boolean search(String word) {
     Node cursor = root;
     for (int i = 0; i < word.length(); i++) {
       char ch = word.charAt(i);
@@ -77,10 +71,7 @@ public class Trie {
   }
 
   /**
-   * If the trie contains word which starts with prefix, returns true.
-   *
-   * @param prefix
-   * @return boolean
+   * Returns if there is any word in the trie that starts with the given prefix.
    */
   public boolean startsWith(String prefix) {
     Node cursor = root;

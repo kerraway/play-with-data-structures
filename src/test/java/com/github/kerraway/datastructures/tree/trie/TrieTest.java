@@ -30,6 +30,10 @@ public class TrieTest {
     for (String word : words) {
       assertTrue(trie.contains(word));
     }
+    String[] prefixes = {"th", "bo", "con"};
+    for (String prefix : prefixes) {
+      assertTrue(trie.startsWith(prefix));
+    }
     String[] otherWords = {"other", "words", "that", "are", "not", "contained", "in", "the", "trie"};
     for (String otherWord : otherWords) {
       assertFalse(trie.contains(otherWord));
