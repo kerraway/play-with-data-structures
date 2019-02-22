@@ -1,6 +1,6 @@
 package com.github.kerraway.datastructures.leetcode;
 
-import com.github.kerraway.datastructures.tree.SegmentTree;
+import com.github.kerraway.datastructures.tree.binarytree.SegmentTree;
 import com.github.kerraway.datastructures.util.Assert;
 
 import java.util.Arrays;

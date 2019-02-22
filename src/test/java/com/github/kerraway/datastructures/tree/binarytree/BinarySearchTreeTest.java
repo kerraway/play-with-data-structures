@@ -1,4 +1,4 @@
-package com.github.kerraway.datastructures.tree;
+package com.github.kerraway.datastructures.tree.binarytree;
 
 import org.junit.Test;
 

@@ -3,7 +3,7 @@ package com.github.kerraway.datastructures.leetcode;
 import com.github.kerraway.datastructures.set.BinarySearchTreeSet;
 import com.github.kerraway.datastructures.set.LinkedListSet;
 import com.github.kerraway.datastructures.set.Set;
-import com.github.kerraway.datastructures.tree.BinarySearchTree;
+import com.github.kerraway.datastructures.tree.binarytree.BinarySearchTree;
 
 /**
  * https://leetcode-cn.com/problems/unique-morse-code-words/

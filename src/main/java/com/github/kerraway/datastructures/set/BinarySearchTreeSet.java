@@ -1,6 +1,6 @@
 package com.github.kerraway.datastructures.set;
 
-import com.github.kerraway.datastructures.tree.BinarySearchTree;
+import com.github.kerraway.datastructures.tree.binarytree.BinarySearchTree;
 
 /**
  * @author kerraway
