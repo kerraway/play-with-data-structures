@@ -16,32 +16,22 @@ import static org.junit.Assert.*;
  */
 public class TrieTest {
 
+  /**
+   * @see Trie
+   * @see TrieInRecursion
+   */
   @Test
   public void functionTest() {
-    Trie trie = new Trie();
-    String[] words = {"this", "is", "a", "book", "about", "java", "concurrence", "programing",
-        "written", "by", "someone", "crazy", "about", "java"};
-    for (String word : words) {
-      trie.add(word);
-    }
-    TreeSet<String> wordSet = new TreeSet<>(Arrays.asList(words));
-    assertEquals(wordSet.size(), trie.size());
-
-    for (String word : words) {
-      assertTrue(trie.contains(word));
-    }
-    String[] prefixes = {"th", "bo", "con"};
-    for (String prefix : prefixes) {
-      assertTrue(trie.startsWith(prefix));
-    }
-    String[] otherWords = {"other", "words", "that", "are", "not", "contained", "in", "the", "trie"};
-    for (String otherWord : otherWords) {
-      assertFalse(trie.contains(otherWord));
-    }
+    functionTest4Trie();
+    functionTest4TrieInRecursion();
   }
 
   /**
-   * Performance test: {@link Trie} vs {@link BinarySearchTree}.
+   * Performance test
+   *
+   * @see Trie
+   * @see TrieInRecursion
+   * @see BinarySearchTree
    */
   @Test
   public void performanceTest() {
@@ -51,7 +41,7 @@ public class TrieTest {
     words.addAll(words2);
 
     //warm up
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 5; i++) {
       performanceTest(words, true);
     }
     //official game
@@ -85,6 +75,66 @@ public class TrieTest {
     if (!isWarmUp) {
       System.out.printf("%s handle %s words, use %s s.\n", Trie.class.getName(),
           trie.size(), (System.nanoTime() - start) / 1000000000.0);
+    }
+
+    //TrieInRecursion
+    start = System.nanoTime();
+    TrieInRecursion trieInRecursion = new TrieInRecursion();
+    for (String word : words) {
+      trieInRecursion.add(word);
+    }
+    for (String word : words) {
+      assertTrue(trieInRecursion.contains(word));
+    }
+    if (!isWarmUp) {
+      System.out.printf("%s handle %s words, use %s s.\n", TrieInRecursion.class.getName(),
+          trieInRecursion.size(), (System.nanoTime() - start) / 1000000000.0);
+    }
+  }
+
+  private void functionTest4Trie() {
+    Trie trie = new Trie();
+    String[] words = {"this", "is", "a", "book", "about", "java", "concurrence", "programing",
+        "written", "by", "someone", "crazy", "about", "java"};
+    for (String word : words) {
+      trie.add(word);
+    }
+    TreeSet<String> wordSet = new TreeSet<>(Arrays.asList(words));
+    assertEquals(wordSet.size(), trie.size());
+
+    for (String word : words) {
+      assertTrue(trie.contains(word));
+    }
+    String[] prefixes = {"th", "bo", "con"};
+    for (String prefix : prefixes) {
+      assertTrue(trie.startsWith(prefix));
+    }
+    String[] otherWords = {"other", "words", "that", "are", "not", "contained", "in", "the", "trie"};
+    for (String otherWord : otherWords) {
+      assertFalse(trie.contains(otherWord));
+    }
+  }
+
+  private void functionTest4TrieInRecursion() {
+    TrieInRecursion trie = new TrieInRecursion();
+    String[] words = {"this", "is", "a", "book", "about", "java", "concurrence", "programing",
+        "written", "by", "someone", "crazy", "about", "java"};
+    for (String word : words) {
+      trie.add(word);
+    }
+    TreeSet<String> wordSet = new TreeSet<>(Arrays.asList(words));
+    assertEquals(wordSet.size(), trie.size());
+
+    for (String word : words) {
+      assertTrue(trie.contains(word));
+    }
+    String[] prefixes = {"th", "bo", "con"};
+    for (String prefix : prefixes) {
+      assertTrue(trie.startsWith(prefix));
+    }
+    String[] otherWords = {"other", "words", "that", "are", "not", "contained", "in", "the", "trie"};
+    for (String otherWord : otherWords) {
+      assertFalse(trie.contains(otherWord));
     }
   }
 

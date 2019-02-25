@@ -12,6 +12,8 @@ import com.github.kerraway.datastructures.stack.StackTest;
 import com.github.kerraway.datastructures.tree.binarytree.BinarySearchTreeTest;
 import com.github.kerraway.datastructures.tree.binarytree.SegmentTreeTest;
 import com.github.kerraway.datastructures.tree.heap.MaxHeapTest;
+import com.github.kerraway.datastructures.tree.trie.MapSumTest;
+import com.github.kerraway.datastructures.tree.trie.TrieTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -37,12 +39,16 @@ import org.junit.runners.Suite;
     //recursive
     SumTest.class,
 
-    //tree
+    //binary tree
     BinarySearchTreeTest.class,
     SegmentTreeTest.class,
 
     //heap
     MaxHeapTest.class,
+
+    //trie
+    TrieTest.class,
+    MapSumTest.class,
 
     //leetcode
     LeetCode20Test.class,
