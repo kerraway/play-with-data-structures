@@ -1,6 +1,7 @@
 package com.github.kerraway.datastructures.tree.trie;
 
 import java.util.Map;
+import java.util.Stack;
 import java.util.TreeMap;
 
 /**
@@ -55,6 +56,50 @@ public class Trie {
       cursor.isWord = true;
       size++;
     }
+  }
+
+  /**
+   * Remove word from the trie.
+   *
+   * @param word
+   * @return boolean
+   */
+  public boolean remove(String word) {
+    Stack<Node> stack = new Stack<>();
+    stack.push(root);
+    for (int i = 0; i < word.length(); i++) {
+      char ch = word.charAt(i);
+      Node next = stack.peek().next.get(ch);
+      if (next == null) {
+        return false;
+      }
+      stack.push(next);
+    }
+
+    Node tailNode = stack.peek();
+    if (!tailNode.isWord) {
+      return false;
+    }
+
+    //set the tail node of word to false
+    tailNode.isWord = false;
+    size--;
+
+    //if the tail node's next is not empty, means the trie has other words
+    if (tailNode.next.size() > 0) {
+      return true;
+    }
+
+    stack.pop();
+    for (int i = word.length() - 1; i >= 0; i--) {
+      stack.peek().next.remove(word.charAt(i));
+      //if pre node is word, or its next is not empty, ends loop
+      if (stack.peek().isWord || stack.peek().next.size() > 0) {
+        return true;
+      }
+      stack.pop();
+    }
+    return true;
   }
 
   /**

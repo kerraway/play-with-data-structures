@@ -113,6 +113,13 @@ public class TrieTest {
     for (String otherWord : otherWords) {
       assertFalse(trie.contains(otherWord));
     }
+
+    String[] removeWords = {"is", "this"};
+    for (String removeWord : removeWords) {
+      assertTrue(trie.remove(removeWord));
+      assertFalse(trie.contains(removeWord));
+      assertFalse(trie.startsWith(removeWord.substring(0, removeWord.length() - 1)));
+    }
   }
 
   private void functionTest4TrieInRecursion() {
@@ -135,6 +142,13 @@ public class TrieTest {
     String[] otherWords = {"other", "words", "that", "are", "not", "contained", "in", "the", "trie"};
     for (String otherWord : otherWords) {
       assertFalse(trie.contains(otherWord));
+    }
+
+    String[] removeWords = {"is", "this"};
+    for (String removeWord : removeWords) {
+      assertTrue(trie.remove(removeWord));
+      assertFalse(trie.contains(removeWord));
+      assertFalse(trie.startsWith(removeWord.substring(0, removeWord.length() - 1)));
     }
   }
 

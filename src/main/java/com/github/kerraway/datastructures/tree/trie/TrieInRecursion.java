@@ -45,6 +45,19 @@ public class TrieInRecursion {
   }
 
   /**
+   * Remove word from the trie.
+   *
+   * @param word
+   * @return boolean
+   */
+  public boolean remove(String word) {
+    if (word == null || word.equals("")) {
+      return false;
+    }
+    return remove(root, word, 0);
+  }
+
+  /**
    * If the trie contains word, returns true.
    *
    * @param word
@@ -86,6 +99,36 @@ public class TrieInRecursion {
       node.next.put(ch, (next = new Node()));
     }
     add(next, word, index + 1);
+  }
+
+  /**
+   * Remove word from the trie by recursion.
+   *
+   * @param node
+   * @param word
+   * @param index
+   * @return boolean
+   */
+  private boolean remove(Node node, String word, int index) {
+    if (word.length() == index) {
+      if (!node.isWord) {
+        return false;
+      }
+      node.isWord = false;
+      size--;
+      return true;
+    }
+
+    char ch = word.charAt(index);
+    Node next = node.next.get(ch);
+    if (next == null) {
+      return false;
+    }
+    boolean ret = remove(next, word, index + 1);
+    if (!next.isWord && next.next.isEmpty()) {
+      node.next.remove(ch);
+    }
+    return ret;
   }
 
   /**
