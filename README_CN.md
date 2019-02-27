@@ -1,7 +1,7 @@
-#### Play with data structures
-**English | [简体中文](./README_CN.md)**
+#### 玩转数据结构
+**[English](./README.md) | 简体中文**
 
-In this repository, I will write some common data structures:
+在这个仓库中，我将写一些常用数据结构：
 
 1. array list and linked list
 1. stack and queue
@@ -16,4 +16,4 @@ In this repository, I will write some common data structures:
 1. red-black tree
 1. hash table
 
-and use these data structures to solve some leetcode problems.
+并使用以上数据结构，解决一些力扣(LeetCode)上的问题。
