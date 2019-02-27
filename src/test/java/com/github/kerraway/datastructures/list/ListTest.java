@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ListTest {
 
   @Test
-  public void test() {
+  public void functionTest() {
     //ArrayList V2
     List<Integer> arrayListV2 = new ArrayList<>();
     functionTest(arrayListV2);

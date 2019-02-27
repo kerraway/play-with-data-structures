@@ -14,6 +14,7 @@ import com.github.kerraway.datastructures.tree.binarytree.SegmentTreeTest;
 import com.github.kerraway.datastructures.tree.heap.MaxHeapTest;
 import com.github.kerraway.datastructures.tree.trie.MapSumTest;
 import com.github.kerraway.datastructures.tree.trie.TrieTest;
+import com.github.kerraway.datastructures.unionfind.UnionFindTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -50,6 +51,9 @@ import org.junit.runners.Suite;
     TrieTest.class,
     MapSumTest.class,
 
+    //union-find
+    UnionFindTest.class,
+
     //leetcode
     LeetCode20Test.class,
     LeetCode102Test.class,
@@ -64,6 +68,7 @@ import org.junit.runners.Suite;
     LeetCode303Test.class,
     LeetCode307Test.class,
     LeetCode211Test.class,
+    LeetCode380Test.class,
 })
 public class DataStructuresTests {
 }
