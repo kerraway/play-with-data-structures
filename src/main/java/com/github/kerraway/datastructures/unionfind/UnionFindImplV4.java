@@ -3,33 +3,33 @@ package com.github.kerraway.datastructures.unionfind;
 import com.github.kerraway.datastructures.util.Assert;
 
 /**
- * V3 implement, uses an array, names {@link #parentIds}, to record
+ * V4 implement, uses an array, names {@link #parentIds}, to record
  * the index of element's parent element, and uses another array,
- * names {@link #sizes}, to record the size of elements tree.
+ * names {@link #ranks}, to record the rank of elements tree.
  *
  * @author kerraway
- * @date 2019/2/27
+ * @date 2019/04/16
  */
-public class UnionFindImplV3 implements UnionFind {
+public class UnionFindImplV4 implements UnionFind {
 
   /**
    * parentIds[i] denotes the index of this element's parent element.
    */
   private int[] parentIds;
   /**
-   * sizes[i] denotes the size of elements in the tree which root is i.
+   * ranks[i] denotes the rank of elements in the tree which root is i.
    */
-  private int[] sizes;
+  private int[] ranks;
 
-  public UnionFindImplV3(int size) {
+  public UnionFindImplV4(int size) {
     this.parentIds = new int[size];
-    this.sizes = new int[size];
+    this.ranks = new int[size];
     //init
     for (int i = 0; i < size; i++) {
       //every element points to itself
       parentIds[i] = i;
-      //and size is 1
-      sizes[i] = 1;
+      //and rank is 1
+      ranks[i] = 1;
     }
   }
 
@@ -66,13 +66,19 @@ public class UnionFindImplV3 implements UnionFind {
       return;
     }
 
-    //merge the tree with less elements into the tree with more elements
-    if (sizes[pFinalParentId] < sizes[qFinalParentId]) {
+    //merge the tree with smaller rank into the tree with bigger rank
+    //the tree which root is pFinalParentId is smaller
+    if (ranks[pFinalParentId] < ranks[qFinalParentId]) {
       parentIds[pFinalParentId] = qFinalParentId;
-      sizes[qFinalParentId] += sizes[pFinalParentId];
-    } else {
-      parentIds[qFinalParentId] = parentIds[pFinalParentId];
-      sizes[pFinalParentId] += sizes[qFinalParentId];
+    }
+    //the tree which root is qFinalParentId is smaller
+    else if (ranks[pFinalParentId] > ranks[qFinalParentId]) {
+      parentIds[qFinalParentId] = pFinalParentId;
+    }
+    //if two trees' rank is equal, merge and maintain the rank
+    else {
+      parentIds[pFinalParentId] = qFinalParentId;
+      ranks[qFinalParentId] += 1;
     }
   }
 
@@ -86,11 +92,9 @@ public class UnionFindImplV3 implements UnionFind {
   private int get(int i) {
     Assert.isTrue(i >= 0 && i < size(), "i must be in [0, " + size() + ").");
 
-    //uses loop to get the root element
     while (i != parentIds[i]) {
       i = parentIds[i];
     }
     return i;
   }
-
 }

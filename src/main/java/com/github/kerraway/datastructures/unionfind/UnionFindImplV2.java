@@ -3,6 +3,9 @@ package com.github.kerraway.datastructures.unionfind;
 import com.github.kerraway.datastructures.util.Assert;
 
 /**
+ * V2 implement, uses an array, names {@link #parentIds}, to record
+ * the index of element's parent element.
+ *
  * @author kerraway
  * @date 2019/2/27
  */

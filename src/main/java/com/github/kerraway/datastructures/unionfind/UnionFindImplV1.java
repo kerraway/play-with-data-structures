@@ -3,6 +3,8 @@ package com.github.kerraway.datastructures.unionfind;
 import com.github.kerraway.datastructures.util.Assert;
 
 /**
+ * V1 implement, without any optimizations.
+ *
  * @author kerraway
  * @date 2019/2/26
  */

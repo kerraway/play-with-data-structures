@@ -22,15 +22,28 @@ public class UnionFindTest {
     performanceTest(new UnionFindImplV2(size), operateCount);
     //v3
     performanceTest(new UnionFindImplV3(size), operateCount);
+    //v4
+    performanceTest(new UnionFindImplV4(size), operateCount);
 
     size = 100000;
-    operateCount = 100000;
+    operateCount = 80000;
     System.out.printf("\nUnion-find size: %s, operate count: %s.\n", size, operateCount);
-    //performance: v2 < v3
+    //performance: v2 < v3 < v4
     //v2
     performanceTest(new UnionFindImplV2(size), operateCount);
     //v3
     performanceTest(new UnionFindImplV3(size), operateCount);
+    //v4
+    performanceTest(new UnionFindImplV4(size), operateCount);
+
+    size = 10000000;
+    operateCount = 5000000;
+    System.out.printf("\nUnion-find size: %s, operate count: %s.\n", size, operateCount);
+    //performance: v3 < v4
+    //v3
+    performanceTest(new UnionFindImplV3(size), operateCount);
+    //v4
+    performanceTest(new UnionFindImplV4(size), operateCount);
   }
 
   private void performanceTest(UnionFind unionFind, int operateCount) {
