@@ -37,13 +37,17 @@ public class UnionFindTest {
     performanceTest(new UnionFindImplV4(size), operateCount);
 
     size = 10000000;
-    operateCount = 5000000;
+    operateCount = 10000000;
     System.out.printf("\nUnion-find size: %s, operate count: %s.\n", size, operateCount);
-    //performance: v3 < v4
+    //performance: v3 < v4 < v5 ≈ v6
     //v3
     performanceTest(new UnionFindImplV3(size), operateCount);
     //v4
     performanceTest(new UnionFindImplV4(size), operateCount);
+    //v5
+    performanceTest(new UnionFindImplV5(size), operateCount);
+    //v6
+    performanceTest(new UnionFindImplV6(size), operateCount);
   }
 
   private void performanceTest(UnionFind unionFind, int operateCount) {
