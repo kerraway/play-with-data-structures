@@ -87,7 +87,7 @@ public class UnionFindImplV6 implements UnionFind {
    * @param i
    * @return union id
    */
-  private int get(int i) {
+  public int get(int i) {
     Assert.isTrue(i >= 0 && i < size(), "i must be in [0, " + size() + ").");
 
     //path compression v2, recursive algorithm.
