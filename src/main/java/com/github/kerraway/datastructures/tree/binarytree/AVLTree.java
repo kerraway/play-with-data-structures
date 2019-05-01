@@ -178,6 +178,18 @@ public class AVLTree<K extends Comparable<K>, V> {
 
     //updates height
     node.height = calcHeight(node);
+    //maintains balance
+    return maintainBalance(node);
+  }
+
+  /**
+   * Maintains the balance of tree which root is node.
+   *
+   * @param node
+   * @return the tree's root.
+   */
+  private Node maintainBalance(Node node) {
+    Assert.notNull(node, "node must not be null.");
 
     //calculates balance factor
     int balanceFactor = getBalanceFactor(node);
@@ -219,7 +231,7 @@ public class AVLTree<K extends Comparable<K>, V> {
    * </pre>
    *
    * @param y
-   * @return the new root x.
+   * @return the tree's new root x.
    */
   private Node rightRotate(Node y) {
     Assert.notNull(y, "y must not be null.");
@@ -250,7 +262,7 @@ public class AVLTree<K extends Comparable<K>, V> {
    * </pre>
    *
    * @param y
-   * @return the new root x.
+   * @return the tree's new root x.
    */
   private Node leftRotate(Node y) {
     Assert.notNull(y, "y must not be null.");
@@ -306,39 +318,50 @@ public class AVLTree<K extends Comparable<K>, V> {
       return null;
     }
 
+    Node retNode;
     //removes nodes from node's left subtree
     if (key.compareTo(node.key) < 0) {
       node.left = removeNode(node.left, key);
-      return node;
+      retNode = node;
     }
     //removes nodes from node's right subtree
-    if (key.compareTo(node.key) > 0) {
+    else if (key.compareTo(node.key) > 0) {
       node.right = removeNode(node.right, key);
-      return node;
+      retNode = node;
     }
     //hits the target
     //node's left subtree is null
-    if (node.left == null) {
+    else if (node.left == null) {
       Node rightNode = node.right;
       node.right = null;
       size--;
-      return rightNode;
+      retNode = rightNode;
     }
     //node's right subtree is null
-    if (node.right == null) {
+    else if (node.right == null) {
       Node leftNode = node.left;
       node.left = null;
       size--;
-      return leftNode;
+      retNode = leftNode;
     }
     //node's left and right subtrees aren't null
     //gets a successor which is the minimum node of node's right subtree
     //and uses it to replace the node
-    Node successor = getMinNode(node.right);
-    successor.right = removeMinNode(node.right);
-    successor.left = node.left;
-    node.left = node.right = null;
-    return successor;
+    else {
+      Node successor = getMinNode(node.right);
+      successor.right = removeNode(node.right, successor.key);
+      successor.left = node.left;
+      node.left = node.right = null;
+      retNode = successor;
+    }
+
+    if (retNode == null) {
+      return null;
+    }
+    //updates height
+    retNode.height = calcHeight(retNode);
+    //maintains balance
+    return maintainBalance(retNode);
   }
 
   /**
@@ -355,28 +378,6 @@ public class AVLTree<K extends Comparable<K>, V> {
       return node;
     }
     return getMinNode(node.left);
-  }
-
-  /**
-   * Removes minimum node from tree which root is the node param,
-   * then returns the root of the processed tree.
-   *
-   * @param node
-   * @return Node
-   */
-  private Node removeMinNode(Node node) {
-    if (node == null) {
-      return null;
-    }
-    if (node.left == null) {
-      Node rightNode = node.right;
-      node.right = null;
-      size--;
-      return rightNode;
-    }
-
-    node.left = removeMinNode(node.left);
-    return node;
   }
 
   private class Node {

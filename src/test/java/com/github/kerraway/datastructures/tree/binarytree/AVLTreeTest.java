@@ -22,12 +22,12 @@ public class AVLTreeTest {
     AVLTree<String, Integer> avlTree = new AVLTree<>();
     List<String> words = FileUtils.readWords(filePath);
     for (String word : words) {
-      String wordLowerCase = word.toLowerCase();
-      Integer count = avlTree.get(wordLowerCase);
+      String lowerCaseWord = word.toLowerCase();
+      Integer count = avlTree.get(lowerCaseWord);
       if (count == null) {
-        avlTree.add(wordLowerCase, 1);
+        avlTree.add(lowerCaseWord, 1);
       } else {
-        avlTree.set(wordLowerCase, count + 1);
+        avlTree.set(lowerCaseWord, count + 1);
       }
     }
 
@@ -43,7 +43,8 @@ public class AVLTreeTest {
     assertTrue(avlTree.isBalanced());
 
     for (String word : words) {
-      avlTree.remove(word);
+      String lowerCaseWord = word.toLowerCase();
+      avlTree.remove(lowerCaseWord);
       assertTrue(avlTree.isBinarySearchTree());
       assertTrue(avlTree.isBalanced());
     }
