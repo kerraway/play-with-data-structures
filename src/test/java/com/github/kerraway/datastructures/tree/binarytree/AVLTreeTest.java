@@ -36,19 +36,18 @@ public class AVLTreeTest {
     for (String checkWord : checkWords) {
       System.out.printf("Word frequency '%s': %s.\n", checkWord, avlTree.get(checkWord));
     }
-
-//    assertTrue(avlTree.isBinarySearchTree());
-//    assertTrue(avlTree.isBalanced());
-
     System.out.printf("The tree is a binary search tree: %s.\n", avlTree.isBinarySearchTree());
     System.out.printf("The tree is balanced: %s.\n", avlTree.isBalanced());
 
-//    for (String word : words) {
-//      avlTree.remove(word);
-//      assertTrue(avlTree.isBinarySearchTree());
-//      assertTrue(avlTree.isBalanced());
-//    }
-//    assertTrue(avlTree.isEmpty());
+    assertTrue(avlTree.isBinarySearchTree());
+    assertTrue(avlTree.isBalanced());
+
+    for (String word : words) {
+      avlTree.remove(word);
+      assertTrue(avlTree.isBinarySearchTree());
+      assertTrue(avlTree.isBalanced());
+    }
+    assertTrue(avlTree.isEmpty());
   }
 
 }
