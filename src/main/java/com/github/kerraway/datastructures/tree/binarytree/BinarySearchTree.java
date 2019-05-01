@@ -421,8 +421,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
   }
 
   private class Node {
-    private E e;
-    private Node left, right;
+    E e;
+    Node left, right;
 
     Node(E e) {
       this.e = e;

@@ -9,6 +9,7 @@ import com.github.kerraway.datastructures.map.MapTest;
 import com.github.kerraway.datastructures.queue.QueueTest;
 import com.github.kerraway.datastructures.set.SetTest;
 import com.github.kerraway.datastructures.stack.StackTest;
+import com.github.kerraway.datastructures.tree.binarytree.AVLTreeTest;
 import com.github.kerraway.datastructures.tree.binarytree.BinarySearchTreeTest;
 import com.github.kerraway.datastructures.tree.binarytree.SegmentTreeTest;
 import com.github.kerraway.datastructures.tree.heap.MaxHeapTest;
@@ -43,6 +44,7 @@ import org.junit.runners.Suite;
     //binary tree
     BinarySearchTreeTest.class,
     SegmentTreeTest.class,
+    AVLTreeTest.class,
 
     //heap
     MaxHeapTest.class,
