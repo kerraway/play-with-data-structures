@@ -1,5 +1,6 @@
 package com.github.kerraway.datastructures.leetcode;
 
+import com.github.kerraway.datastructures.set.AVLTreeSet;
 import com.github.kerraway.datastructures.set.BinarySearchTreeSet;
 import com.github.kerraway.datastructures.set.LinkedListSet;
 import com.github.kerraway.datastructures.set.Set;
@@ -87,6 +88,30 @@ public class LeetCode349 {
    */
   public int[] intersectionV3(int[] nums1, int[] nums2) {
     java.util.Set<Integer> set = new TreeSet<>();
+    for (int num : nums1) {
+      set.add(num);
+    }
+
+    List<Integer> list = new ArrayList<>();
+    for (int num : nums2) {
+      if (set.contains(num)) {
+        list.add(num);
+        set.remove(num);
+      }
+    }
+
+    return buildArray(list);
+  }
+
+  /**
+   * Use {@link AVLTreeSet}.
+   *
+   * @param nums1
+   * @param nums2
+   * @return int[]
+   */
+  public int[] intersectionV4(int[] nums1, int[] nums2) {
+    Set<Integer> set = new AVLTreeSet<>();
     for (int num : nums1) {
       set.add(num);
     }

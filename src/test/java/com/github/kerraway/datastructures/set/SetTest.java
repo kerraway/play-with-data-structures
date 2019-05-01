@@ -16,25 +16,23 @@ public class SetTest {
 
   @Test
   public void functionTest() {
-    functionTest(new BinarySearchTreeSet<>(), BOOK_PATH_A_TALE_OF_TWO_CITIES);
-    functionTest(new BinarySearchTreeSet<>(), BOOK_PATH_PRIDE_AND_PREJUDICE);
-
-    functionTest(new LinkedListSet<>(), BOOK_PATH_A_TALE_OF_TWO_CITIES);
-    functionTest(new LinkedListSet<>(), BOOK_PATH_PRIDE_AND_PREJUDICE);
+    String[] bookPaths = {BOOK_PATH_A_TALE_OF_TWO_CITIES, BOOK_PATH_PRIDE_AND_PREJUDICE};
+    for (String bookPath : bookPaths) {
+      functionTest(new LinkedListSet<>(), bookPath);
+      functionTest(new BinarySearchTreeSet<>(), bookPath);
+      functionTest(new AVLTreeSet<>(), bookPath);
+      System.out.println();
+    }
   }
 
-  private void functionTest(Set<String> set, String filePath) {
-    System.out.printf("Set function test for %s, book: %s\n", set.getClass().getName(), filePath);
-
+  private void functionTest(Set<String> set, String bookPath) {
     long start = System.nanoTime();
-    List<String> words = FileUtils.readWords(filePath);
+    List<String> words = FileUtils.readWords(bookPath);
     for (String word : words) {
       set.add(word.toLowerCase());
     }
-    System.out.printf("Total words: %s, total different words: %s.\n", words.size(), set.size());
-
-    System.out.printf("Set function test for %s, book: %s, use %s s.\n\n",
-        set.getClass().getName(), filePath, (System.nanoTime() - start) / 1000000000.0);
+    System.out.printf("Set function test for %s, book: %s, total words: %s, total different words: %s, use %s s.\n",
+        set.getClass().getName(), bookPath, words.size(), set.size(), (System.nanoTime() - start) / 1000000000.0);
   }
 
 }

@@ -17,8 +17,8 @@ public class MapTest {
   @Test
   public void functionTest() {
     functionTest(new LinkedListMap<>());
-
     functionTest(new BinarySearchTreeMap<>());
+    functionTest(new AVLTreeMap<>());
   }
 
   private void functionTest(Map<String, Integer> map) {

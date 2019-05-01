@@ -1,5 +1,6 @@
 package com.github.kerraway.datastructures.leetcode;
 
+import com.github.kerraway.datastructures.map.AVLTreeMap;
 import com.github.kerraway.datastructures.map.BinarySearchTreeMap;
 import com.github.kerraway.datastructures.map.LinkedListMap;
 import com.github.kerraway.datastructures.map.Map;
@@ -114,6 +115,36 @@ public class LeetCode350 {
       if (count != null && count > 0) {
         list.add(num);
         map.put(num, count - 1);
+      }
+    }
+
+    return buildArray(list);
+  }
+
+  /**
+   * Use {@link AVLTreeMap}.
+   *
+   * @param nums1
+   * @param nums2
+   * @return int[]
+   */
+  public int[] intersectV4(int[] nums1, int[] nums2) {
+    Map<Integer, Integer> map = new AVLTreeMap<>();
+    for (int num : nums1) {
+      Integer count = map.get(num);
+      if (count == null) {
+        map.add(num, 1);
+      } else {
+        map.set(num, count + 1);
+      }
+    }
+
+    List<Integer> list = new ArrayList<>();
+    for (int num : nums2) {
+      Integer count = map.get(num);
+      if (count != null && count > 0) {
+        list.add(num);
+        map.set(num, count - 1);
       }
     }
 

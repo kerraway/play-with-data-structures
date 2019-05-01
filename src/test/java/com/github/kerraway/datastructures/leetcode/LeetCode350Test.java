@@ -39,6 +39,8 @@ public class LeetCode350Test {
       assertArrayEquals(result, new LeetCode350().intersectV2(ints1, ints2));
       //solution v3
       assertArrayEquals(result, new LeetCode350().intersectV3(ints1, ints2));
+      //solution v4
+      assertArrayEquals(result, new LeetCode350().intersectV4(ints1, ints2));
     }
   }
 
