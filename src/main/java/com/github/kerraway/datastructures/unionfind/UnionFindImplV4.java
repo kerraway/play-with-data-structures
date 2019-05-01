@@ -5,7 +5,7 @@ import com.github.kerraway.datastructures.util.Assert;
 /**
  * V4 implement, uses an array, names {@link #parentIds}, to record
  * the index of element's parent element, and uses another array,
- * names {@link #ranks}, to record the rank of elements tree.
+ * names {@link #heights}, to record the height of elements tree.
  *
  * @author kerraway
  * @date 2019/04/16
@@ -17,19 +17,19 @@ public class UnionFindImplV4 implements UnionFind {
    */
   private int[] parentIds;
   /**
-   * ranks[i] denotes the rank of elements in the tree which root is i.
+   * heights[i] denotes the rank of elements in the tree which root is i.
    */
-  private int[] ranks;
+  private int[] heights;
 
   public UnionFindImplV4(int size) {
     this.parentIds = new int[size];
-    this.ranks = new int[size];
+    this.heights = new int[size];
     //init
     for (int i = 0; i < size; i++) {
       //every element points to itself
       parentIds[i] = i;
-      //and rank is 1
-      ranks[i] = 1;
+      //and height is 1
+      heights[i] = 1;
     }
   }
 
@@ -66,19 +66,19 @@ public class UnionFindImplV4 implements UnionFind {
       return;
     }
 
-    //merge the tree with smaller rank into the tree with bigger rank
+    //merge the tree with smaller height into the tree with bigger height
     //the tree which root is pFinalParentId is smaller
-    if (ranks[pFinalParentId] < ranks[qFinalParentId]) {
+    if (heights[pFinalParentId] < heights[qFinalParentId]) {
       parentIds[pFinalParentId] = qFinalParentId;
     }
     //the tree which root is qFinalParentId is smaller
-    else if (ranks[pFinalParentId] > ranks[qFinalParentId]) {
+    else if (heights[pFinalParentId] > heights[qFinalParentId]) {
       parentIds[qFinalParentId] = pFinalParentId;
     }
-    //if two trees' rank is equal, merge and maintain the rank
+    //if two trees' height is equal, merge and maintain the height
     else {
       parentIds[pFinalParentId] = qFinalParentId;
-      ranks[qFinalParentId] += 1;
+      heights[qFinalParentId] += 1;
     }
   }
 

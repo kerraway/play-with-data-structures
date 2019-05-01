@@ -92,10 +92,9 @@ public class UnionFindImplV6 implements UnionFind {
 
     //path compression v2, recursive algorithm.
     if (i != parentIds[i]) {
-      parentIds[i] = parentIds[parentIds[i]];
-      i = parentIds[i];
+      parentIds[i] = get(parentIds[i]);
     }
-    return i;
+    return parentIds[i];
   }
 
 }

@@ -11,11 +11,11 @@ import java.util.Random;
 public class UnionFindTest {
 
   @Test
-  public void performanceTest() {
+  public void performanceTest1() {
     int size = 100000;
     int operateCount = 10000;
     System.out.printf("Union-find size: %s, operate count: %s.\n", size, operateCount);
-    //performance: v1 < v2 < v3
+    //performance: v1 < v2 < v3 ≈ v4
     //v1
     performanceTest(new UnionFindImplV1(size), operateCount);
     //v2
@@ -24,22 +24,28 @@ public class UnionFindTest {
     performanceTest(new UnionFindImplV3(size), operateCount);
     //v4
     performanceTest(new UnionFindImplV4(size), operateCount);
+  }
 
-    size = 100000;
-    operateCount = 80000;
+  @Test
+  public void performanceTest2() {
+    int size = 100000;
+    int operateCount = 80000;
     System.out.printf("\nUnion-find size: %s, operate count: %s.\n", size, operateCount);
-    //performance: v2 < v3 < v4
+    //performance: v2 < v3 ≈ v4
     //v2
     performanceTest(new UnionFindImplV2(size), operateCount);
     //v3
     performanceTest(new UnionFindImplV3(size), operateCount);
     //v4
     performanceTest(new UnionFindImplV4(size), operateCount);
+  }
 
-    size = 10000000;
-    operateCount = 10000000;
+  @Test
+  public void performanceTest3() {
+    int size = 10000000;
+    int operateCount = 10000000;
     System.out.printf("\nUnion-find size: %s, operate count: %s.\n", size, operateCount);
-    //performance: v3 < v4 < v5 ≈ v6
+    //performance: v3 ≈ v4 < v6 < v5
     //v3
     performanceTest(new UnionFindImplV3(size), operateCount);
     //v4
